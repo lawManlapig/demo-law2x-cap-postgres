@@ -1,0 +1,24 @@
+{
+  "name": "demo-law2x-cap-postgres",
+  "version": "1.0.0",
+  "dependencies": {
+    "@sap/cds": "^9",
+    "@sap/xssec": "^4",
+    "@cap-js/postgres": "^2"
+  },
+  "devDependencies": {
+    "@cap-js/sqlite": "^2",
+    "@sap/cds-dk": "^9"
+  },
+  "scripts": {
+    "start": "cds-serve",
+    "bdep": "mbt build --mtar a && cf deploy mta_archives/a.mtar --abort-on-error",
+    "comp1": "mkdir -p gen/pg/db && cds compile '*' > gen/pg/db/csn.json && cp package-lock.json gen/pg/package-lock.json"
+  },
+  "private": true,
+  "cds": {
+    "requires": {
+      "auth": "mocked"
+    }
+  }
+}

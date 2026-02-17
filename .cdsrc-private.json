@@ -1,0 +1,33 @@
+{
+  "requires": {
+    "[hybrid]": {
+      "db": {
+        "binding": {
+          "type": "cf",
+          "apiEndpoint": "https://api.cf.us10-001.hana.ondemand.com",
+          "org": "bneXt Inc._development-t3ujwvpg",
+          "space": "dev",
+          "instance": "demo-law2x-cap-postgres-postgres",
+          "key": "demo-law2x-cap-postgres-postgres-key"
+        },
+        "kind": "postgres",
+        "vcap": {
+          "name": "db"
+        }
+      }
+    },
+    "[pg]": {
+      "db": {
+        "kind": "postgres",
+        "impl": "@cap-js/postgres",
+        "credentials": {
+          "host": "postgres-56b681ce-de33-4b89-a0c6-9147c139e03d.cqryblsdrbcs.us-east-1.rds.amazonaws.com",
+          "port": "6180",
+          "user": "645cf00792ec",
+          "password": "1ecb1e23d30507fcd1a7e192e959",
+          "database": "NyphWFjEdNyS"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,32 @@
+Starting CAP Project Generator...
+Using @sap/cds-dk [9.7.2] from C:\Users\HP\AppData\Roaming\npm\node_modules\@sap\cds-dk
+Using @sap/generator-cap-project [2.0.5] from [C:\Users\HP\AppData\Roaming\npm\node_modules\@sap\generator-cap-project]
+Using root path [c:\Users\HP\projects]
+
+Creating project with mta, nodejs, pipeline, postgres, xsuaa
+
+Adding facet: nodejs
+Adding facet: mta
+Adding facet: xsuaa
+Adding facet: postgres
+Adding facet: pipeline
+
+Successfully initialized CAP project
+Continue with: code demo-law2x-cap-postgres 
+for information on project "Piper" and its pipelines see https://www.project-piper.io/
+
+
+Installing dependencies...
+
+added 282 packages, and audited 283 packages in 20s
+
+38 packages are looking for funding
+  run `npm fund` for details
+
+found 0 vulnerabilities
+
+Finished installing dependencies
+
+Done setting up project demo-law2x-cap-postgres
+Project is ready to use
+

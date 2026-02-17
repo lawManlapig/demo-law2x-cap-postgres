@@ -1,0 +1,62 @@
+_schema-version: 3.3.0
+ID: demo-law2x-cap-postgres
+version: 1.0.0
+description: "A simple CAP project."
+parameters:
+  enable-parallel-deployments: true
+build-parameters:
+  before-all:
+    - builder: custom
+      commands:
+        - npm ci
+        - npx cds build --production
+modules:
+  - name: demo-law2x-cap-postgres-srv
+    type: nodejs
+    path: gen/srv
+    parameters:
+      instances: 1
+      buildpack: nodejs_buildpack
+    build-parameters:
+      builder: npm-ci
+    provides:
+      - name: srv-api # required by consumers of CAP services (e.g. approuter)
+        properties:
+          srv-url: ${default-url}
+    requires:
+      - name: demo-law2x-cap-postgres-auth
+      - name: demo-law2x-cap-postgres-postgres
+
+  - name: demo-law2x-cap-postgres-postgres-deployer
+    type: nodejs
+    path: gen/pg
+    parameters:
+      buildpack: nodejs_buildpack
+      no-route: true
+      no-start: true
+      tasks:
+        - name: deploy-to-postgresql
+          command: npm start
+    requires:
+      - name: demo-law2x-cap-postgres-postgres
+
+resources:
+  - name: demo-law2x-cap-postgres-auth
+    type: org.cloudfoundry.managed-service
+    parameters:
+      service: xsuaa
+      service-plan: application
+      path: ./xs-security.json
+      config:
+        xsappname: demo-law2x-cap-postgres-${space}
+        tenant-mode: dedicated
+        oauth2-configuration:
+          credential-types:
+            - "binding-secret"
+            - "x509"
+  - name: demo-law2x-cap-postgres-postgres
+    type: org.cloudfoundry.managed-service
+    parameters:
+      service-name: demo-law2x-cap-postgres-postgres
+      service: postgresql-db
+      service-plan: free
