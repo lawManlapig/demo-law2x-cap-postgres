@@ -4,7 +4,7 @@
   "dependencies": {
     "@sap/cds": "^9",
     "@sap/xssec": "^4",
-    "@cap-js/postgres": "^2"
+    "@cap-js/postgres": "^2" 
   },
   "devDependencies": {
     "@cap-js/sqlite": "^2",
