@@ -1,62 +1,148 @@
 _schema-version: 3.3.0
 ID: demo-law2x-cap-postgres
+description: A simple CAP project.
 version: 1.0.0
-description: "A simple CAP project."
+modules:
+- name: demo-law2x-cap-postgres-srv
+  type: nodejs
+  path: gen/srv
+  requires:
+  - name: demo-law2x-cap-postgres-auth
+  - name: demo-law2x-cap-postgres-postgres
+  provides:
+  - name: srv-api
+    properties:
+      srv-url: ${default-url}
+  parameters:
+    buildpack: nodejs_buildpack
+    instances: 1
+  build-parameters:
+    builder: npm-ci
+- name: demo-law2x-cap-postgres-postgres-deployer
+  type: nodejs
+  path: gen/pg
+  requires:
+  - name: demo-law2x-cap-postgres-postgres
+  parameters:
+    buildpack: nodejs_buildpack
+    no-route: true
+    no-start: true
+    tasks:
+    - command: npm start
+      name: deploy-to-postgresql
+- name: demo-law2x-cap-postgres-destination-content
+  type: com.sap.application.content
+  requires:
+  - name: demo-law2x-cap-postgres-destination-service
+    parameters:
+      content-target: true
+  - name: demo-law2x-cap-postgres_html_repo_host
+    parameters:
+      service-key:
+        name: demo-law2x-cap-postgres_html_repo_host-key
+  - name: demo-law2x-cap-postgres-auth
+    parameters:
+      service-key:
+        name: demo-law2x-cap-postgres-auth-key
+  parameters:
+    content:
+      instance:
+        destinations:
+        - Name: law2xpgAppRouter_CAP_Test_Law_003_html_repo_host
+          ServiceInstanceName: demo-law2x-cap-postgres-html5-app-host-service
+          ServiceKeyName: demo-law2x-cap-postgres_html_repo_host-key
+          sap.cloud.service: law2xpgAppRouter
+        - Authentication: OAuth2UserTokenExchange
+          Name: law2xpgAppRouter_uaa_law2xpg
+          ServiceInstanceName: demo-law2x-cap-postgres-auth
+          ServiceKeyName: demo-law2x-cap-postgres-auth-key
+          sap.cloud.service: law2xpgAppRouter
+        existing_destinations_policy: ignore
+  build-parameters:
+    no-source: true
+- name: demo-law2x-cap-postgres-app-content
+  type: com.sap.application.content
+  path: .
+  requires:
+  - name: demo-law2x-cap-postgres_html_repo_host
+    parameters:
+      content-target: true
+  build-parameters:
+    build-result: resources
+    requires:
+    - artifacts:
+      - employeesapp.zip
+      name: employeesapp
+      target-path: resources/
+- name: employeesapp
+  type: html5
+  path: app/employees-app
+  build-parameters:
+    build-result: dist
+    builder: custom
+    commands:
+    - npm install
+    - npm run build:cf
+    supported-platforms: []
+resources:
+- name: demo-law2x-cap-postgres-auth
+  type: org.cloudfoundry.managed-service
+  parameters:
+    config:
+      oauth2-configuration:
+        credential-types:
+        - binding-secret
+        - x509
+      tenant-mode: dedicated
+      xsappname: demo-law2x-cap-postgres-${space}
+    path: ./xs-security.json
+    service: xsuaa
+    service-plan: application
+- name: demo-law2x-cap-postgres-postgres
+  type: org.cloudfoundry.managed-service
+  parameters:
+    service: postgresql-db
+    service-name: demo-law2x-cap-postgres-postgres
+    service-plan: free
+- name: demo-law2x-cap-postgres-destination-service
+  type: org.cloudfoundry.managed-service
+  parameters:
+    config:
+      HTML5Runtime_enabled: true
+      init_data:
+        instance:
+          destinations:
+          - Authentication: NoAuthentication
+            Name: ui5
+            ProxyType: Internet
+            Type: HTTP
+            URL: https://ui5.sap.com
+          - Authentication: NoAuthentication
+            HTML5.DynamicDestination: true
+            HTML5.ForwardAuthToken: true
+            Name: demo-law2x-cap-postgres-srv-api
+            ProxyType: Internet
+            Type: HTTP
+            URL: ~{srv-api/srv-url}
+          existing_destinations_policy: update
+      version: 1.0.0
+    service: destination
+    service-name: demo-law2x-cap-postgres-destination-service
+    service-plan: lite
+  requires:
+  - name: srv-api
+- name: demo-law2x-cap-postgres_html_repo_host
+  type: org.cloudfoundry.managed-service
+  parameters:
+    service: html5-apps-repo
+    service-name: demo-law2x-cap-postgres-html5-app-host-service
+    service-plan: app-host
 parameters:
+  deploy_mode: html5-repo
   enable-parallel-deployments: true
 build-parameters:
   before-all:
-    - builder: custom
-      commands:
-        - npm ci
-        - npx cds build --production
-modules:
-  - name: demo-law2x-cap-postgres-srv
-    type: nodejs
-    path: gen/srv
-    parameters:
-      instances: 1
-      buildpack: nodejs_buildpack
-    build-parameters:
-      builder: npm-ci
-    provides:
-      - name: srv-api # required by consumers of CAP services (e.g. approuter)
-        properties:
-          srv-url: ${default-url}
-    requires:
-      - name: demo-law2x-cap-postgres-auth
-      - name: demo-law2x-cap-postgres-postgres
-
-  - name: demo-law2x-cap-postgres-postgres-deployer
-    type: nodejs
-    path: gen/pg
-    parameters:
-      buildpack: nodejs_buildpack
-      no-route: true
-      no-start: true
-      tasks:
-        - name: deploy-to-postgresql
-          command: npm start
-    requires:
-      - name: demo-law2x-cap-postgres-postgres
-
-resources:
-  - name: demo-law2x-cap-postgres-auth
-    type: org.cloudfoundry.managed-service
-    parameters:
-      service: xsuaa
-      service-plan: application
-      path: ./xs-security.json
-      config:
-        xsappname: demo-law2x-cap-postgres-${space}
-        tenant-mode: dedicated
-        oauth2-configuration:
-          credential-types:
-            - "binding-secret"
-            - "x509"
-  - name: demo-law2x-cap-postgres-postgres
-    type: org.cloudfoundry.managed-service
-    parameters:
-      service-name: demo-law2x-cap-postgres-postgres
-      service: postgresql-db
-      service-plan: free
+  - builder: custom
+    commands:
+    - npm ci
+    - npx cds build --production

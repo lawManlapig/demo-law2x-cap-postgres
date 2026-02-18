@@ -8,19 +8,29 @@
   },
   "devDependencies": {
     "@cap-js/sqlite": "^2",
-    "@sap/cds-dk": "^9"
+    "@sap/cds-dk": "^9",
+    "rimraf": "^5.0.5",
+    "mbt": "^1.2.29"
   },
   "scripts": {
     "start": "cds-serve",
     "bdep": "mbt build --mtar a && cf deploy mta_archives/a.mtar --abort-on-error",
-    "pg-build": "mkdir -p gen/pg/db && cds compile '*' > gen/pg/db/csn.json && cp package-lock.json gen/pg/package-lock.json"
+    "bdep2": "mbt build --mtar a && cf deploy mta_archives/a.mtar --abort-on-error --delete-services",
+    "comp1": "mkdir -p gen/pg/db && cds compile '*' > gen/pg/db/csn.json && cp package-lock.json gen/pg/package-lock.json",
+    "watch-employees-app": "cds watch --open employeesapp/index.html?sap-ui-xx-viewCache=false --livereload false",
+    "undeploy": "cf undeploy demo-law2x-cap-postgres --delete-services --delete-service-keys --delete-service-brokers",
+    "build": "rimraf resources mta_archives && mbt build --mtar archive",
+    "deploy": "cf deploy mta_archives/archive.mtar --retries 1"
   },
   "private": true,
   "cds": {
     "requires": {
-      "auth": "mocked"
+      "auth": "xsuaa"
     }
   },
+  "sapux": [
+    "app/employees-app"
+  ],
   "engines": {
     "node": ">=20"
   }

@@ -79,6 +79,43 @@
         <Annotation Term="Common.AddressViaNavigationPath" Bool="true"/>
       </Annotations>
       <Annotations Target="DataMaintenanceService.Employees">
+        <Annotation Term="UI.FieldGroup" Qualifier="GeneratedGroup">
+          <Record Type="UI.FieldGroupType">
+            <PropertyValue Property="Data">
+              <Collection>
+                <Record Type="UI.DataField">
+                  <PropertyValue Property="Label" String="firstName"/>
+                  <PropertyValue Property="Value" Path="firstName"/>
+                </Record>
+                <Record Type="UI.DataField">
+                  <PropertyValue Property="Label" String="lastName"/>
+                  <PropertyValue Property="Value" Path="lastName"/>
+                </Record>
+              </Collection>
+            </PropertyValue>
+          </Record>
+        </Annotation>
+        <Annotation Term="UI.Facets">
+          <Collection>
+            <Record Type="UI.ReferenceFacet">
+              <PropertyValue Property="ID" String="GeneratedFacet1"/>
+              <PropertyValue Property="Label" String="General Information"/>
+              <PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#GeneratedGroup"/>
+            </Record>
+          </Collection>
+        </Annotation>
+        <Annotation Term="UI.LineItem">
+          <Collection>
+            <Record Type="UI.DataField">
+              <PropertyValue Property="Label" String="firstName"/>
+              <PropertyValue Property="Value" Path="firstName"/>
+            </Record>
+            <Record Type="UI.DataField">
+              <PropertyValue Property="Label" String="lastName"/>
+              <PropertyValue Property="Value" Path="lastName"/>
+            </Record>
+          </Collection>
+        </Annotation>
         <Annotation Term="Common.SideEffects" Qualifier="alwaysFetchMessages">
           <Record Type="Common.SideEffectsType">
             <PropertyValue Property="SourceEntities">
