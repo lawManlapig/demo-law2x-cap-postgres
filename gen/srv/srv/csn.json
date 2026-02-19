@@ -87,6 +87,357 @@
         }
       }
     },
+    "DataMaintenanceService.EmployeesS4": {
+      "kind": "entity",
+      "@UI.FieldGroup#GeneratedGroup.$Type": "UI.FieldGroupType",
+      "@UI.FieldGroup#GeneratedGroup.Data": [
+        {
+          "$Type": "UI.DataField",
+          "Label": "emplid",
+          "Value": {
+            "=": "emplid"
+          }
+        },
+        {
+          "$Type": "UI.DataField",
+          "Label": "Edit_ac",
+          "Value": {
+            "=": "Edit_ac"
+          }
+        },
+        {
+          "$Type": "UI.DataField",
+          "Label": "Delete_mc",
+          "Value": {
+            "=": "Delete_mc"
+          }
+        },
+        {
+          "$Type": "UI.DataField",
+          "Label": "Update_mc",
+          "Value": {
+            "=": "Update_mc"
+          }
+        },
+        {
+          "$Type": "UI.DataField",
+          "Label": "to_Leaves_oc",
+          "Value": {
+            "=": "to_Leaves_oc"
+          }
+        },
+        {
+          "$Type": "UI.DataField",
+          "Label": "emplname",
+          "Value": {
+            "=": "emplname"
+          }
+        },
+        {
+          "$Type": "UI.DataField",
+          "Label": "empldepartment",
+          "Value": {
+            "=": "empldepartment"
+          }
+        },
+        {
+          "$Type": "UI.DataField",
+          "Label": "emplposition",
+          "Value": {
+            "=": "emplposition"
+          }
+        },
+        {
+          "$Type": "UI.DataField",
+          "Label": "emplemail",
+          "Value": {
+            "=": "emplemail"
+          }
+        },
+        {
+          "$Type": "UI.DataField",
+          "Label": "emplhire_date",
+          "Value": {
+            "=": "emplhire_date"
+          }
+        },
+        {
+          "$Type": "UI.DataField",
+          "Label": "LocalCreatedBy",
+          "Value": {
+            "=": "LocalCreatedBy"
+          }
+        },
+        {
+          "$Type": "UI.DataField",
+          "Label": "LocalCreatedAt",
+          "Value": {
+            "=": "LocalCreatedAt"
+          }
+        },
+        {
+          "$Type": "UI.DataField",
+          "Label": "LocalLastChangedBy",
+          "Value": {
+            "=": "LocalLastChangedBy"
+          }
+        },
+        {
+          "$Type": "UI.DataField",
+          "Label": "LocalLastChangedAt",
+          "Value": {
+            "=": "LocalLastChangedAt"
+          }
+        },
+        {
+          "$Type": "UI.DataField",
+          "Label": "LastChangedAt",
+          "Value": {
+            "=": "LastChangedAt"
+          }
+        },
+        {
+          "$Type": "UI.DataField",
+          "Label": "DraftEntityCreationDateTime",
+          "Value": {
+            "=": "DraftEntityCreationDateTime"
+          }
+        },
+        {
+          "$Type": "UI.DataField",
+          "Label": "DraftEntityLastChangeDateTime",
+          "Value": {
+            "=": "DraftEntityLastChangeDateTime"
+          }
+        }
+      ],
+      "@UI.Facets": [
+        {
+          "$Type": "UI.ReferenceFacet",
+          "ID": "GeneratedFacet1",
+          "Label": "General Information",
+          "Target": "@UI.FieldGroup#GeneratedGroup"
+        }
+      ],
+      "@UI.LineItem": [
+        {
+          "$Type": "UI.DataField",
+          "Label": "DraftEntityLastChangeDateTime",
+          "Value": {
+            "=": "DraftEntityLastChangeDateTime"
+          }
+        },
+        {
+          "$Type": "UI.DataField",
+          "Label": "emplid",
+          "Value": {
+            "=": "emplid"
+          }
+        },
+        {
+          "$Type": "UI.DataField",
+          "Label": "Edit_ac",
+          "Value": {
+            "=": "Edit_ac"
+          }
+        },
+        {
+          "$Type": "UI.DataField",
+          "Label": "Delete_mc",
+          "Value": {
+            "=": "Delete_mc"
+          }
+        },
+        {
+          "$Type": "UI.DataField",
+          "Label": "Update_mc",
+          "Value": {
+            "=": "Update_mc"
+          }
+        }
+      ],
+      "@cds.persistence.skip": true,
+      "@sap.creatable": "false",
+      "@sap.content.version": "1",
+      "@sap.deletable.path": "Delete_mc",
+      "@sap.updatable.path": "Update_mc",
+      "@sap.label": "Employee CDS View",
+      "projection": {
+        "from": {
+          "ref": [
+            "BS4200_Employees_v2.Employees1"
+          ]
+        }
+      },
+      "elements": {
+        "uuid": {
+          "@sap.label": "UUID",
+          "@sap.quickinfo": "16 Byte UUID in 16 Bytes (Raw Format)",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "key": true,
+          "type": "cds.UUID",
+          "notNull": true
+        },
+        "emplid": {
+          "key": true,
+          "type": "cds.String",
+          "length": 50,
+          "notNull": true
+        },
+        "IsActiveEntity": {
+          "@sap.label": "Is active",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "key": true,
+          "type": "cds.Boolean",
+          "notNull": true
+        },
+        "Edit_ac": {
+          "@sap.label": "Dyn. Action Control",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false",
+          "type": "cds.Boolean"
+        },
+        "Delete_mc": {
+          "@sap.label": "Dyn. Method Control",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false",
+          "type": "cds.Boolean"
+        },
+        "Update_mc": {
+          "@sap.label": "Dyn. Method Control",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false",
+          "type": "cds.Boolean"
+        },
+        "to_Leaves_oc": {
+          "@sap.label": "Dynamic CbA-Control",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false",
+          "type": "cds.Boolean"
+        },
+        "emplname": {
+          "type": "cds.String",
+          "length": 50
+        },
+        "empldepartment": {
+          "type": "cds.String",
+          "length": 30
+        },
+        "emplposition": {
+          "type": "cds.String",
+          "length": 30
+        },
+        "emplemail": {
+          "type": "cds.String",
+          "length": 50
+        },
+        "emplhire_date": {
+          "@sap.display.format": "Date",
+          "type": "cds.Date"
+        },
+        "LocalCreatedBy": {
+          "@sap.display.format": "UpperCase",
+          "@sap.label": "Created By",
+          "@sap.quickinfo": "Created By User",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "type": "cds.String",
+          "length": 12
+        },
+        "LocalCreatedAt": {
+          "@odata.Type": "Edm.DateTimeOffset",
+          "@odata.Precision": 7,
+          "@sap.label": "Created On",
+          "@sap.quickinfo": "Creation Date Time",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "type": "cds.Timestamp"
+        },
+        "LocalLastChangedBy": {
+          "@sap.display.format": "UpperCase",
+          "@sap.label": "Changed By",
+          "@sap.quickinfo": "Local Instance Last Changed By User",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "type": "cds.String",
+          "length": 12
+        },
+        "LocalLastChangedAt": {
+          "@odata.Type": "Edm.DateTimeOffset",
+          "@odata.Precision": 7,
+          "@sap.label": "Changed On",
+          "@sap.quickinfo": "Local Instance Last Change Date Time",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "type": "cds.Timestamp"
+        },
+        "LastChangedAt": {
+          "@odata.Type": "Edm.DateTimeOffset",
+          "@odata.Precision": 7,
+          "@sap.label": "Changed On",
+          "@sap.quickinfo": "Last Change Date Time",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "type": "cds.Timestamp"
+        },
+        "HasDraftEntity": {
+          "@sap.label": "Has Draft",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "type": "cds.Boolean"
+        },
+        "DraftEntityCreationDateTime": {
+          "@odata.Type": "Edm.DateTimeOffset",
+          "@odata.Precision": 7,
+          "@sap.label": "Draft Created On",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "type": "cds.Timestamp"
+        },
+        "DraftEntityLastChangeDateTime": {
+          "@odata.Type": "Edm.DateTimeOffset",
+          "@odata.Precision": 7,
+          "@sap.label": "Draft Last Changed On",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "type": "cds.Timestamp"
+        },
+        "HasActiveEntity": {
+          "@sap.label": "Has active",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "type": "cds.Boolean"
+        },
+        "DraftAdministrativeData": {
+          "type": "cds.Association",
+          "target": "BS4200_Employees_v2.I_DraftAdministrativeData",
+          "keys": []
+        },
+        "SiblingEntity": {
+          "type": "cds.Association",
+          "target": "DataMaintenanceService.EmployeesS4",
+          "keys": []
+        },
+        "to_Leaves": {
+          "type": "cds.Composition",
+          "cardinality": {
+            "max": "*"
+          },
+          "target": "DataMaintenanceService.Leaves1",
+          "keys": []
+        }
+      }
+    },
     "cds.outbox.Messages": {
       "kind": "entity",
       "elements": {
@@ -132,6 +483,1162 @@
         "appid": {
           "type": "cds.String",
           "length": 255
+        }
+      }
+    },
+    "BS4200_Employees_v2": {
+      "@source": "srv/external/BS4200_Employees_v2.cds",
+      "kind": "service",
+      "@cds.external": true,
+      "@m.IsDefaultEntityContainer": "true",
+      "@sap.message.scope.supported": "true",
+      "@sap.supported.formats": "atom json xlsx pdf"
+    },
+    "BS4200_Employees_v2.I_DraftAdministrativeData": {
+      "kind": "entity",
+      "@cds.external": true,
+      "@cds.persistence.skip": true,
+      "@sap.creatable": "false",
+      "@sap.updatable": "false",
+      "@sap.deletable": "false",
+      "@sap.searchable": "true",
+      "@sap.addressable": "false",
+      "@sap.content.version": "1",
+      "@sap.label": "Draft Administration Data",
+      "elements": {
+        "DraftUUID": {
+          "@sap.label": "Draft (Technical ID)",
+          "key": true,
+          "type": "cds.UUID",
+          "notNull": true
+        },
+        "DraftEntityType": {
+          "@sap.display.format": "UpperCase",
+          "@sap.label": "Draft Entity ID",
+          "key": true,
+          "type": "cds.String",
+          "length": 30,
+          "notNull": true
+        },
+        "CreationDateTime": {
+          "@odata.Type": "Edm.DateTimeOffset",
+          "@odata.Precision": 7,
+          "@sap.filter.restriction": "interval",
+          "@sap.label": "Draft Created On",
+          "type": "cds.Timestamp"
+        },
+        "CreatedByUser": {
+          "@sap.display.format": "UpperCase",
+          "@sap.text": "CreatedByUserDescription",
+          "@sap.label": "Draft Created By",
+          "@sap.value.list": "standard",
+          "type": "cds.String",
+          "length": 12
+        },
+        "LastChangeDateTime": {
+          "@odata.Type": "Edm.DateTimeOffset",
+          "@odata.Precision": 7,
+          "@sap.filter.restriction": "interval",
+          "@sap.label": "Draft Last Changed On",
+          "type": "cds.Timestamp"
+        },
+        "LastChangedByUser": {
+          "@sap.display.format": "UpperCase",
+          "@sap.text": "LastChangedByUserDescription",
+          "@sap.label": "Draft Last Changed By",
+          "@sap.value.list": "standard",
+          "type": "cds.String",
+          "length": 12
+        },
+        "DraftAccessType": {
+          "@sap.display.format": "UpperCase",
+          "@sap.label": "Draft Access Type",
+          "type": "cds.String",
+          "length": 1
+        },
+        "ProcessingStartDateTime": {
+          "@odata.Type": "Edm.DateTimeOffset",
+          "@odata.Precision": 7,
+          "@sap.label": "Draft In Process Since",
+          "type": "cds.Timestamp"
+        },
+        "InProcessByUser": {
+          "@sap.display.format": "UpperCase",
+          "@sap.text": "InProcessByUserDescription",
+          "@sap.label": "Draft In Process By",
+          "type": "cds.String",
+          "length": 12
+        },
+        "DraftIsKeptByUser": {
+          "@sap.label": "Draft Is Kept By User",
+          "type": "cds.Boolean"
+        },
+        "EnqueueStartDateTime": {
+          "@odata.Type": "Edm.DateTimeOffset",
+          "@odata.Precision": 7,
+          "@sap.label": "Draft Locked Since",
+          "type": "cds.Timestamp"
+        },
+        "DraftIsCreatedByMe": {
+          "@sap.label": "Draft Created By Me",
+          "type": "cds.Boolean"
+        },
+        "DraftIsLastChangedByMe": {
+          "@sap.label": "Draft Last Changed By Me",
+          "type": "cds.Boolean"
+        },
+        "DraftIsProcessedByMe": {
+          "@sap.label": "Draft In Process By Me",
+          "type": "cds.Boolean"
+        },
+        "CreatedByUserDescription": {
+          "@sap.label": "Draft Created By (Description)",
+          "type": "cds.String",
+          "length": 80
+        },
+        "LastChangedByUserDescription": {
+          "@sap.label": "Draft Last Changed By (Description)",
+          "type": "cds.String",
+          "length": 80
+        },
+        "InProcessByUserDescription": {
+          "@sap.label": "Draft In Process By (Description)",
+          "type": "cds.String",
+          "length": 80
+        }
+      }
+    },
+    "BS4200_Employees_v2.I_DraftAdministrativeUserVH": {
+      "kind": "entity",
+      "@cds.external": true,
+      "@cds.persistence.skip": true,
+      "@sap.creatable": "false",
+      "@sap.updatable": "false",
+      "@sap.deletable": "false",
+      "@sap.searchable": "true",
+      "@sap.content.version": "1",
+      "@sap.label": "Draft User",
+      "@sap.value.list": "true",
+      "elements": {
+        "UserID": {
+          "@sap.display.format": "UpperCase",
+          "@sap.text": "UserDescription",
+          "@sap.label": "User",
+          "@sap.quickinfo": "User Name in User Master Record",
+          "key": true,
+          "type": "cds.String",
+          "length": 12,
+          "notNull": true
+        },
+        "UserDescription": {
+          "@sap.label": "Description",
+          "@sap.quickinfo": "User Description",
+          "type": "cds.String",
+          "length": 80
+        }
+      }
+    },
+    "BS4200_Employees_v2.Employees1": {
+      "kind": "entity",
+      "@cds.external": true,
+      "@cds.persistence.skip": true,
+      "@sap.creatable": "false",
+      "@sap.content.version": "1",
+      "@sap.deletable.path": "Delete_mc",
+      "@sap.updatable.path": "Update_mc",
+      "@sap.label": "Employee CDS View",
+      "elements": {
+        "uuid": {
+          "@sap.label": "UUID",
+          "@sap.quickinfo": "16 Byte UUID in 16 Bytes (Raw Format)",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "key": true,
+          "type": "cds.UUID",
+          "notNull": true
+        },
+        "emplid": {
+          "key": true,
+          "type": "cds.String",
+          "length": 50,
+          "notNull": true
+        },
+        "IsActiveEntity": {
+          "@sap.label": "Is active",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "key": true,
+          "type": "cds.Boolean",
+          "notNull": true
+        },
+        "Edit_ac": {
+          "@sap.label": "Dyn. Action Control",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false",
+          "type": "cds.Boolean"
+        },
+        "Delete_mc": {
+          "@sap.label": "Dyn. Method Control",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false",
+          "type": "cds.Boolean"
+        },
+        "Update_mc": {
+          "@sap.label": "Dyn. Method Control",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false",
+          "type": "cds.Boolean"
+        },
+        "to_Leaves_oc": {
+          "@sap.label": "Dynamic CbA-Control",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false",
+          "type": "cds.Boolean"
+        },
+        "emplname": {
+          "type": "cds.String",
+          "length": 50
+        },
+        "empldepartment": {
+          "type": "cds.String",
+          "length": 30
+        },
+        "emplposition": {
+          "type": "cds.String",
+          "length": 30
+        },
+        "emplemail": {
+          "type": "cds.String",
+          "length": 50
+        },
+        "emplhire_date": {
+          "@sap.display.format": "Date",
+          "type": "cds.Date"
+        },
+        "LocalCreatedBy": {
+          "@sap.display.format": "UpperCase",
+          "@sap.label": "Created By",
+          "@sap.quickinfo": "Created By User",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "type": "cds.String",
+          "length": 12
+        },
+        "LocalCreatedAt": {
+          "@odata.Type": "Edm.DateTimeOffset",
+          "@odata.Precision": 7,
+          "@sap.label": "Created On",
+          "@sap.quickinfo": "Creation Date Time",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "type": "cds.Timestamp"
+        },
+        "LocalLastChangedBy": {
+          "@sap.display.format": "UpperCase",
+          "@sap.label": "Changed By",
+          "@sap.quickinfo": "Local Instance Last Changed By User",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "type": "cds.String",
+          "length": 12
+        },
+        "LocalLastChangedAt": {
+          "@odata.Type": "Edm.DateTimeOffset",
+          "@odata.Precision": 7,
+          "@sap.label": "Changed On",
+          "@sap.quickinfo": "Local Instance Last Change Date Time",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "type": "cds.Timestamp"
+        },
+        "LastChangedAt": {
+          "@odata.Type": "Edm.DateTimeOffset",
+          "@odata.Precision": 7,
+          "@sap.label": "Changed On",
+          "@sap.quickinfo": "Last Change Date Time",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "type": "cds.Timestamp"
+        },
+        "HasDraftEntity": {
+          "@sap.label": "Has Draft",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "type": "cds.Boolean"
+        },
+        "DraftEntityCreationDateTime": {
+          "@odata.Type": "Edm.DateTimeOffset",
+          "@odata.Precision": 7,
+          "@sap.label": "Draft Created On",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "type": "cds.Timestamp"
+        },
+        "DraftEntityLastChangeDateTime": {
+          "@odata.Type": "Edm.DateTimeOffset",
+          "@odata.Precision": 7,
+          "@sap.label": "Draft Last Changed On",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "type": "cds.Timestamp"
+        },
+        "HasActiveEntity": {
+          "@sap.label": "Has active",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "type": "cds.Boolean"
+        },
+        "DraftAdministrativeData": {
+          "type": "cds.Association",
+          "target": "BS4200_Employees_v2.I_DraftAdministrativeData",
+          "keys": []
+        },
+        "SiblingEntity": {
+          "type": "cds.Association",
+          "target": "BS4200_Employees_v2.Employees1",
+          "keys": []
+        },
+        "to_Leaves": {
+          "type": "cds.Composition",
+          "cardinality": {
+            "max": "*"
+          },
+          "target": "BS4200_Employees_v2.Leaves1",
+          "keys": []
+        }
+      },
+      "actions": {
+        "Employees1Activate": {
+          "kind": "action",
+          "returns": {
+            "type": "BS4200_Employees_v2.Employees1"
+          }
+        },
+        "Employees1Discard": {
+          "kind": "action",
+          "returns": {
+            "type": "BS4200_Employees_v2.DummyFunctionImportResult"
+          }
+        },
+        "Employees1Edit": {
+          "kind": "action",
+          "params": {
+            "PreserveChanges": {
+              "@sap.label": "TRUE",
+              "type": "cds.Boolean"
+            }
+          },
+          "returns": {
+            "type": "BS4200_Employees_v2.Employees1"
+          }
+        },
+        "Employees1Prepare": {
+          "kind": "action",
+          "returns": {
+            "type": "BS4200_Employees_v2.DummyFunctionImportResult"
+          }
+        },
+        "Employees1Resume": {
+          "kind": "action",
+          "returns": {
+            "type": "BS4200_Employees_v2.DummyFunctionImportResult"
+          }
+        }
+      }
+    },
+    "BS4200_Employees_v2.Leaves1": {
+      "kind": "entity",
+      "@cds.external": true,
+      "@cds.persistence.skip": true,
+      "@sap.content.version": "1",
+      "@sap.deletable.path": "Delete_mc",
+      "@sap.updatable.path": "Update_mc",
+      "@sap.label": "Projection View of the Leave",
+      "elements": {
+        "uuid": {
+          "@sap.label": "UUID",
+          "@sap.quickinfo": "16 Byte UUID in 16 Bytes (Raw Format)",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "key": true,
+          "type": "cds.UUID",
+          "notNull": true
+        },
+        "leaveid": {
+          "@sap.updatable": "false",
+          "key": true,
+          "type": "cds.String",
+          "length": 50,
+          "notNull": true
+        },
+        "emplid": {
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "key": true,
+          "type": "cds.String",
+          "length": 50,
+          "notNull": true
+        },
+        "IsActiveEntity": {
+          "@sap.label": "Is active",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "key": true,
+          "type": "cds.Boolean",
+          "notNull": true
+        },
+        "Delete_mc": {
+          "@sap.label": "Dyn. Method Control",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false",
+          "type": "cds.Boolean"
+        },
+        "Update_mc": {
+          "@sap.label": "Dyn. Method Control",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false",
+          "type": "cds.Boolean"
+        },
+        "empluuid": {
+          "@sap.label": "UUID",
+          "@sap.quickinfo": "16 Byte UUID in 16 Bytes (Raw Format)",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "type": "cds.UUID"
+        },
+        "leave_type": {
+          "type": "cds.String",
+          "length": 20
+        },
+        "start_date": {
+          "@sap.display.format": "Date",
+          "type": "cds.Date"
+        },
+        "end_date": {
+          "@sap.display.format": "Date",
+          "type": "cds.Date"
+        },
+        "status": {
+          "type": "cds.String",
+          "length": 15
+        },
+        "reason": {
+          "type": "cds.String",
+          "length": 100
+        },
+        "LocalCreatedBy": {
+          "@sap.display.format": "UpperCase",
+          "@sap.label": "Created By",
+          "@sap.quickinfo": "Created By User",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "type": "cds.String",
+          "length": 12
+        },
+        "LocalCreatedAt": {
+          "@odata.Type": "Edm.DateTimeOffset",
+          "@odata.Precision": 7,
+          "@sap.label": "Created On",
+          "@sap.quickinfo": "Creation Date Time",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "type": "cds.Timestamp"
+        },
+        "LocalLastChangedBy": {
+          "@sap.display.format": "UpperCase",
+          "@sap.label": "Changed By",
+          "@sap.quickinfo": "Local Instance Last Changed By User",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "type": "cds.String",
+          "length": 12
+        },
+        "LocalLastChangedAt": {
+          "@odata.Type": "Edm.DateTimeOffset",
+          "@odata.Precision": 7,
+          "@sap.label": "Changed On",
+          "@sap.quickinfo": "Local Instance Last Change Date Time",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "type": "cds.Timestamp"
+        },
+        "LastChangedAt": {
+          "@odata.Type": "Edm.DateTimeOffset",
+          "@odata.Precision": 7,
+          "@sap.label": "Changed On",
+          "@sap.quickinfo": "Last Change Date Time",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "type": "cds.Timestamp"
+        },
+        "HasDraftEntity": {
+          "@sap.label": "Has Draft",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "type": "cds.Boolean"
+        },
+        "DraftEntityCreationDateTime": {
+          "@odata.Type": "Edm.DateTimeOffset",
+          "@odata.Precision": 7,
+          "@sap.label": "Draft Created On",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "type": "cds.Timestamp"
+        },
+        "DraftEntityLastChangeDateTime": {
+          "@odata.Type": "Edm.DateTimeOffset",
+          "@odata.Precision": 7,
+          "@sap.label": "Draft Last Changed On",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "type": "cds.Timestamp"
+        },
+        "HasActiveEntity": {
+          "@sap.label": "Has active",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "type": "cds.Boolean"
+        },
+        "to_Employee": {
+          "type": "cds.Association",
+          "target": "BS4200_Employees_v2.Employees1",
+          "keys": []
+        },
+        "DraftAdministrativeData": {
+          "type": "cds.Association",
+          "target": "BS4200_Employees_v2.I_DraftAdministrativeData",
+          "keys": []
+        },
+        "SiblingEntity": {
+          "type": "cds.Association",
+          "target": "BS4200_Employees_v2.Leaves1",
+          "keys": []
+        }
+      }
+    },
+    "BS4200_Employees_v2.SAP__Currencies": {
+      "kind": "entity",
+      "@cds.external": true,
+      "@cds.persistence.skip": true,
+      "@sap.content.version": "1",
+      "elements": {
+        "CurrencyCode": {
+          "@sap.label": "Currency",
+          "@sap.semantics": "currency-code",
+          "key": true,
+          "type": "cds.String",
+          "length": 5,
+          "notNull": true
+        },
+        "ISOCode": {
+          "@sap.label": "ISO code",
+          "type": "cds.String",
+          "length": 3,
+          "notNull": true
+        },
+        "Text": {
+          "@sap.label": "Short text",
+          "type": "cds.String",
+          "length": 15,
+          "notNull": true
+        },
+        "DecimalPlaces": {
+          "@odata.Type": "Edm.Byte",
+          "@sap.label": "Decimals",
+          "type": "cds.Integer",
+          "notNull": true
+        }
+      }
+    },
+    "BS4200_Employees_v2.SAP__UnitsOfMeasure": {
+      "kind": "entity",
+      "@cds.external": true,
+      "@cds.persistence.skip": true,
+      "@sap.content.version": "1",
+      "elements": {
+        "UnitCode": {
+          "@sap.label": "Internal UoM",
+          "@sap.semantics": "unit-of-measure",
+          "key": true,
+          "type": "cds.String",
+          "length": 3,
+          "notNull": true
+        },
+        "ISOCode": {
+          "@sap.label": "ISO Code",
+          "type": "cds.String",
+          "length": 3,
+          "notNull": true
+        },
+        "ExternalCode": {
+          "@sap.label": "Commercial",
+          "type": "cds.String",
+          "length": 3,
+          "notNull": true
+        },
+        "Text": {
+          "@sap.label": "Meas. Unit Text",
+          "type": "cds.String",
+          "length": 30,
+          "notNull": true
+        },
+        "DecimalPlaces": {
+          "@sap.label": "Decimal Places",
+          "type": "cds.Integer"
+        }
+      }
+    },
+    "BS4200_Employees_v2.SAP__MyDocumentDescriptions": {
+      "kind": "entity",
+      "@cds.external": true,
+      "@cds.persistence.skip": true,
+      "@sap.content.version": "1",
+      "elements": {
+        "Id": {
+          "@sap.label": "UUID",
+          "key": true,
+          "type": "cds.UUID",
+          "notNull": true
+        },
+        "CreatedBy": {
+          "type": "cds.String",
+          "length": 12,
+          "notNull": true
+        },
+        "CreatedAt": {
+          "@odata.Type": "Edm.DateTime",
+          "@sap.label": "Time Stamp",
+          "type": "cds.DateTime",
+          "notNull": true
+        },
+        "FileName": {
+          "type": "cds.String",
+          "length": 256,
+          "notNull": true
+        },
+        "Title": {
+          "type": "cds.String",
+          "length": 256,
+          "notNull": true
+        },
+        "Format": {
+          "type": "cds.Association",
+          "target": "BS4200_Employees_v2.SAP__FormatSet",
+          "keys": []
+        },
+        "TableColumns": {
+          "type": "cds.Association",
+          "cardinality": {
+            "max": "*"
+          },
+          "target": "BS4200_Employees_v2.SAP__TableColumnsSet",
+          "keys": []
+        },
+        "CoverPage": {
+          "type": "cds.Association",
+          "cardinality": {
+            "max": "*"
+          },
+          "target": "BS4200_Employees_v2.SAP__CoverPageSet",
+          "keys": []
+        },
+        "Signature": {
+          "type": "cds.Association",
+          "target": "BS4200_Employees_v2.SAP__SignatureSet",
+          "keys": []
+        },
+        "PDFStandard": {
+          "type": "cds.Association",
+          "target": "BS4200_Employees_v2.SAP__PDFStandardSet",
+          "keys": []
+        },
+        "Hierarchy": {
+          "type": "cds.Association",
+          "target": "BS4200_Employees_v2.SAP__HierarchySet",
+          "keys": []
+        },
+        "Header": {
+          "type": "cds.Association",
+          "target": "BS4200_Employees_v2.SAP__PDFHeaderSet",
+          "keys": []
+        },
+        "Footer": {
+          "type": "cds.Association",
+          "target": "BS4200_Employees_v2.SAP__PDFFooterSet",
+          "keys": []
+        }
+      }
+    },
+    "BS4200_Employees_v2.SAP__FormatSet": {
+      "kind": "entity",
+      "@cds.external": true,
+      "@cds.persistence.skip": true,
+      "@sap.creatable": "false",
+      "@sap.updatable": "false",
+      "@sap.deletable": "false",
+      "@sap.pageable": "false",
+      "@sap.addressable": "false",
+      "@sap.content.version": "1",
+      "elements": {
+        "Id": {
+          "@sap.label": "UUID",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false",
+          "key": true,
+          "type": "cds.UUID",
+          "notNull": true
+        },
+        "FitToPage": {
+          "type": "BS4200_Employees_v2.SAP__FitToPage",
+          "notNull": true
+        },
+        "FontSize": {
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false",
+          "type": "cds.Integer",
+          "notNull": true
+        },
+        "Orientation": {
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false",
+          "type": "cds.String",
+          "length": 10,
+          "notNull": true
+        },
+        "PaperSize": {
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false",
+          "type": "cds.String",
+          "length": 10,
+          "notNull": true
+        },
+        "BorderSize": {
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false",
+          "type": "cds.Integer",
+          "notNull": true
+        },
+        "MarginSize": {
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false",
+          "type": "cds.Integer",
+          "notNull": true
+        },
+        "FontName": {
+          "@sap.label": "Font Name",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false",
+          "type": "cds.String",
+          "length": 255,
+          "notNull": true
+        },
+        "Padding": {
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false",
+          "type": "cds.Integer",
+          "notNull": true
+        }
+      }
+    },
+    "BS4200_Employees_v2.SAP__PDFStandardSet": {
+      "kind": "entity",
+      "@cds.external": true,
+      "@cds.persistence.skip": true,
+      "@sap.creatable": "false",
+      "@sap.updatable": "false",
+      "@sap.deletable": "false",
+      "@sap.pageable": "false",
+      "@sap.addressable": "false",
+      "@sap.content.version": "1",
+      "elements": {
+        "Id": {
+          "@sap.label": "UUID",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false",
+          "key": true,
+          "type": "cds.UUID",
+          "notNull": true
+        },
+        "UsePDFAConformance": {
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false",
+          "type": "cds.Boolean",
+          "notNull": true
+        },
+        "DoEnableAccessibility": {
+          "@sap.label": "Indicator",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false",
+          "type": "cds.Boolean",
+          "notNull": true
+        }
+      }
+    },
+    "BS4200_Employees_v2.SAP__TableColumnsSet": {
+      "kind": "entity",
+      "@cds.external": true,
+      "@cds.persistence.skip": true,
+      "@sap.creatable": "false",
+      "@sap.updatable": "false",
+      "@sap.deletable": "false",
+      "@sap.pageable": "false",
+      "@sap.addressable": "false",
+      "@sap.content.version": "1",
+      "elements": {
+        "Id": {
+          "@sap.label": "UUID",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false",
+          "key": true,
+          "type": "cds.UUID",
+          "notNull": true
+        },
+        "Name": {
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false",
+          "key": true,
+          "type": "cds.String",
+          "length": 256,
+          "notNull": true
+        },
+        "Header": {
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false",
+          "key": true,
+          "type": "cds.String",
+          "length": 256,
+          "notNull": true
+        },
+        "HorizontalAlignment": {
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false",
+          "type": "cds.String",
+          "length": 10,
+          "notNull": true
+        }
+      }
+    },
+    "BS4200_Employees_v2.SAP__CoverPageSet": {
+      "kind": "entity",
+      "@cds.external": true,
+      "@cds.persistence.skip": true,
+      "@sap.creatable": "false",
+      "@sap.updatable": "false",
+      "@sap.deletable": "false",
+      "@sap.pageable": "false",
+      "@sap.addressable": "false",
+      "@sap.content.version": "1",
+      "elements": {
+        "Title": {
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false",
+          "key": true,
+          "type": "cds.String",
+          "length": 256,
+          "notNull": true
+        },
+        "Id": {
+          "@sap.label": "UUID",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false",
+          "key": true,
+          "type": "cds.UUID",
+          "notNull": true
+        },
+        "Name": {
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false",
+          "key": true,
+          "type": "cds.String",
+          "length": 256,
+          "notNull": true
+        },
+        "Value": {
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false",
+          "type": "cds.String",
+          "length": 256,
+          "notNull": true
+        }
+      }
+    },
+    "BS4200_Employees_v2.SAP__SignatureSet": {
+      "kind": "entity",
+      "@cds.external": true,
+      "@cds.persistence.skip": true,
+      "@sap.creatable": "false",
+      "@sap.updatable": "false",
+      "@sap.deletable": "false",
+      "@sap.pageable": "false",
+      "@sap.addressable": "false",
+      "@sap.content.version": "1",
+      "elements": {
+        "Id": {
+          "@sap.label": "UUID",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false",
+          "key": true,
+          "type": "cds.UUID",
+          "notNull": true
+        },
+        "DoSign": {
+          "@sap.label": "Indicator",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false",
+          "type": "cds.Boolean",
+          "notNull": true
+        },
+        "Reason": {
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false",
+          "type": "cds.String",
+          "length": 256,
+          "notNull": true
+        }
+      }
+    },
+    "BS4200_Employees_v2.SAP__HierarchySet": {
+      "kind": "entity",
+      "@cds.external": true,
+      "@cds.persistence.skip": true,
+      "@sap.creatable": "false",
+      "@sap.updatable": "false",
+      "@sap.deletable": "false",
+      "@sap.pageable": "false",
+      "@sap.addressable": "false",
+      "@sap.content.version": "1",
+      "elements": {
+        "Id": {
+          "@sap.label": "UUID",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false",
+          "key": true,
+          "type": "cds.UUID",
+          "notNull": true
+        },
+        "DistanceFromRootElement": {
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false",
+          "type": "cds.String",
+          "length": 256,
+          "notNull": true
+        },
+        "DrillStateElement": {
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false",
+          "type": "cds.String",
+          "length": 256,
+          "notNull": true
+        }
+      }
+    },
+    "BS4200_Employees_v2.SAP__PDFHeaderSet": {
+      "kind": "entity",
+      "@cds.external": true,
+      "@cds.persistence.skip": true,
+      "@sap.creatable": "false",
+      "@sap.updatable": "false",
+      "@sap.deletable": "false",
+      "@sap.pageable": "false",
+      "@sap.addressable": "false",
+      "@sap.content.version": "1",
+      "elements": {
+        "Id": {
+          "@sap.label": "UUID",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false",
+          "key": true,
+          "type": "cds.UUID",
+          "notNull": true
+        },
+        "Right": {
+          "type": "BS4200_Employees_v2.SAP__HeaderFooterField",
+          "notNull": true
+        },
+        "Left": {
+          "type": "BS4200_Employees_v2.SAP__HeaderFooterField",
+          "notNull": true
+        },
+        "Center": {
+          "type": "BS4200_Employees_v2.SAP__HeaderFooterField",
+          "notNull": true
+        }
+      }
+    },
+    "BS4200_Employees_v2.SAP__PDFFooterSet": {
+      "kind": "entity",
+      "@cds.external": true,
+      "@cds.persistence.skip": true,
+      "@sap.creatable": "false",
+      "@sap.updatable": "false",
+      "@sap.deletable": "false",
+      "@sap.pageable": "false",
+      "@sap.addressable": "false",
+      "@sap.content.version": "1",
+      "elements": {
+        "Id": {
+          "@sap.label": "UUID",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false",
+          "key": true,
+          "type": "cds.UUID",
+          "notNull": true
+        },
+        "Right": {
+          "type": "BS4200_Employees_v2.SAP__HeaderFooterField",
+          "notNull": true
+        },
+        "Left": {
+          "type": "BS4200_Employees_v2.SAP__HeaderFooterField",
+          "notNull": true
+        },
+        "Center": {
+          "type": "BS4200_Employees_v2.SAP__HeaderFooterField",
+          "notNull": true
+        }
+      }
+    },
+    "BS4200_Employees_v2.SAP__ValueHelpSet": {
+      "kind": "entity",
+      "@cds.external": true,
+      "@cds.persistence.skip": true,
+      "@sap.content.version": "1",
+      "elements": {
+        "VALUEHELP": {
+          "key": true,
+          "type": "cds.String",
+          "notNull": true
+        },
+        "FIELD_VALUE": {
+          "type": "cds.String",
+          "length": 10,
+          "notNull": true
+        },
+        "DESCRIPTION": {
+          "type": "cds.String"
+        }
+      }
+    },
+    "BS4200_Employees_v2.DummyFunctionImportResult": {
+      "kind": "type",
+      "@cds.external": true,
+      "elements": {
+        "IsInvalid": {
+          "@sap.label": "TRUE",
+          "type": "cds.Boolean"
+        }
+      }
+    },
+    "BS4200_Employees_v2.SAP__FitToPage": {
+      "kind": "type",
+      "@cds.external": true,
+      "elements": {
+        "ErrorRecoveryBehavior": {
+          "@sap.label": "Error behavior",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false",
+          "type": "cds.String",
+          "length": 8,
+          "notNull": true
+        },
+        "IsEnabled": {
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false",
+          "type": "cds.Boolean",
+          "notNull": true
+        },
+        "MinimumFontSize": {
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false",
+          "type": "cds.Integer",
+          "notNull": true
+        }
+      }
+    },
+    "BS4200_Employees_v2.SAP__HeaderFooterField": {
+      "kind": "type",
+      "@cds.external": true,
+      "elements": {
+        "Type": {
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false",
+          "type": "cds.String",
+          "length": 256,
+          "notNull": true
         }
       }
     },
@@ -753,6 +2260,187 @@
       "@description": "{i18n>UserID.Description}",
       "type": "cds.String",
       "length": 255
+    },
+    "DataMaintenanceService.Leaves1": {
+      "kind": "entity",
+      "@cds.autoexposed": true,
+      "@cds.persistence.skip": true,
+      "@sap.content.version": "1",
+      "@sap.deletable.path": "Delete_mc",
+      "@sap.updatable.path": "Update_mc",
+      "@sap.label": "Projection View of the Leave",
+      "projection": {
+        "from": {
+          "ref": [
+            "BS4200_Employees_v2.Leaves1"
+          ]
+        }
+      },
+      "elements": {
+        "uuid": {
+          "@sap.label": "UUID",
+          "@sap.quickinfo": "16 Byte UUID in 16 Bytes (Raw Format)",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "key": true,
+          "type": "cds.UUID",
+          "notNull": true
+        },
+        "leaveid": {
+          "@sap.updatable": "false",
+          "key": true,
+          "type": "cds.String",
+          "length": 50,
+          "notNull": true
+        },
+        "emplid": {
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "key": true,
+          "type": "cds.String",
+          "length": 50,
+          "notNull": true
+        },
+        "IsActiveEntity": {
+          "@sap.label": "Is active",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "key": true,
+          "type": "cds.Boolean",
+          "notNull": true
+        },
+        "Delete_mc": {
+          "@sap.label": "Dyn. Method Control",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false",
+          "type": "cds.Boolean"
+        },
+        "Update_mc": {
+          "@sap.label": "Dyn. Method Control",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false",
+          "type": "cds.Boolean"
+        },
+        "empluuid": {
+          "@sap.label": "UUID",
+          "@sap.quickinfo": "16 Byte UUID in 16 Bytes (Raw Format)",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "type": "cds.UUID"
+        },
+        "leave_type": {
+          "type": "cds.String",
+          "length": 20
+        },
+        "start_date": {
+          "@sap.display.format": "Date",
+          "type": "cds.Date"
+        },
+        "end_date": {
+          "@sap.display.format": "Date",
+          "type": "cds.Date"
+        },
+        "status": {
+          "type": "cds.String",
+          "length": 15
+        },
+        "reason": {
+          "type": "cds.String",
+          "length": 100
+        },
+        "LocalCreatedBy": {
+          "@sap.display.format": "UpperCase",
+          "@sap.label": "Created By",
+          "@sap.quickinfo": "Created By User",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "type": "cds.String",
+          "length": 12
+        },
+        "LocalCreatedAt": {
+          "@odata.Type": "Edm.DateTimeOffset",
+          "@odata.Precision": 7,
+          "@sap.label": "Created On",
+          "@sap.quickinfo": "Creation Date Time",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "type": "cds.Timestamp"
+        },
+        "LocalLastChangedBy": {
+          "@sap.display.format": "UpperCase",
+          "@sap.label": "Changed By",
+          "@sap.quickinfo": "Local Instance Last Changed By User",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "type": "cds.String",
+          "length": 12
+        },
+        "LocalLastChangedAt": {
+          "@odata.Type": "Edm.DateTimeOffset",
+          "@odata.Precision": 7,
+          "@sap.label": "Changed On",
+          "@sap.quickinfo": "Local Instance Last Change Date Time",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "type": "cds.Timestamp"
+        },
+        "LastChangedAt": {
+          "@odata.Type": "Edm.DateTimeOffset",
+          "@odata.Precision": 7,
+          "@sap.label": "Changed On",
+          "@sap.quickinfo": "Last Change Date Time",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "type": "cds.Timestamp"
+        },
+        "HasDraftEntity": {
+          "@sap.label": "Has Draft",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "type": "cds.Boolean"
+        },
+        "DraftEntityCreationDateTime": {
+          "@odata.Type": "Edm.DateTimeOffset",
+          "@odata.Precision": 7,
+          "@sap.label": "Draft Created On",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "type": "cds.Timestamp"
+        },
+        "DraftEntityLastChangeDateTime": {
+          "@odata.Type": "Edm.DateTimeOffset",
+          "@odata.Precision": 7,
+          "@sap.label": "Draft Last Changed On",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "type": "cds.Timestamp"
+        },
+        "HasActiveEntity": {
+          "@sap.label": "Has active",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "type": "cds.Boolean"
+        },
+        "to_Employee": {
+          "type": "cds.Association",
+          "target": "DataMaintenanceService.EmployeesS4",
+          "keys": []
+        },
+        "DraftAdministrativeData": {
+          "type": "cds.Association",
+          "target": "BS4200_Employees_v2.I_DraftAdministrativeData",
+          "keys": []
+        },
+        "SiblingEntity": {
+          "type": "cds.Association",
+          "target": "DataMaintenanceService.Leaves1",
+          "keys": []
+        }
+      }
     },
     "sap.common.Languages.texts": {
       "kind": "entity",

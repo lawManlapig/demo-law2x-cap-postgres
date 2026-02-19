@@ -28,6 +28,20 @@
         "vcap": {
           "name": "auth"
         }
+      },
+      "destinations": {
+        "binding": {
+          "type": "cf",
+          "apiEndpoint": "https://api.cf.us10-001.hana.ondemand.com",
+          "org": "bneXt Inc._development-t3ujwvpg",
+          "space": "dev",
+          "instance": "demo-law2x-cap-postgres-destination-service",
+          "key": "demo-law2x-cap-postgres-destination-service-key"
+        },
+        "kind": "destinations",
+        "vcap": {
+          "name": "destinations"
+        }
       }
     },
     "[pg]": {

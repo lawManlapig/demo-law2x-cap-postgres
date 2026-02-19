@@ -74,9 +74,23 @@ modules:
       - employeesapp.zip
       name: employeesapp
       target-path: resources/
+    - artifacts:
+      - employeess4.zip
+      name: employeess4
+      target-path: resources/
 - name: employeesapp
   type: html5
   path: app/employees-app
+  build-parameters:
+    build-result: dist
+    builder: custom
+    commands:
+    - npm install
+    - npm run build:cf
+    supported-platforms: []
+- name: employeess4
+  type: html5
+  path: app/employees-s4
   build-parameters:
     build-result: dist
     builder: custom

@@ -23,6 +23,14 @@
         <EntitySet Name="Employees" EntityType="DataMaintenanceService.Employees">
           <NavigationPropertyBinding Path="SiblingEntity" Target="Employees"/>
         </EntitySet>
+        <EntitySet Name="EmployeesS4" EntityType="DataMaintenanceService.EmployeesS4">
+          <NavigationPropertyBinding Path="SiblingEntity" Target="EmployeesS4"/>
+          <NavigationPropertyBinding Path="to_Leaves" Target="Leaves1"/>
+        </EntitySet>
+        <EntitySet Name="Leaves1" EntityType="DataMaintenanceService.Leaves1">
+          <NavigationPropertyBinding Path="to_Employee" Target="EmployeesS4"/>
+          <NavigationPropertyBinding Path="SiblingEntity" Target="Leaves1"/>
+        </EntitySet>
       </EntityContainer>
       <EntityType Name="Employees">
         <Key>
@@ -38,6 +46,69 @@
         <NavigationProperty Name="DraftAdministrativeData" Type="DataMaintenanceService.DraftAdministrativeData" ContainsTarget="true"/>
         <NavigationProperty Name="SiblingEntity" Type="DataMaintenanceService.Employees"/>
         <Property Name="DraftMessages" Type="Collection(DataMaintenanceService.DRAFT_DraftAdministrativeData_DraftMessage)" Nullable="true"/>
+      </EntityType>
+      <EntityType Name="EmployeesS4">
+        <Key>
+          <PropertyRef Name="uuid"/>
+          <PropertyRef Name="emplid"/>
+          <PropertyRef Name="IsActiveEntity"/>
+        </Key>
+        <Property Name="uuid" Type="Edm.Guid" Nullable="false"/>
+        <Property Name="emplid" Type="Edm.String" MaxLength="50" Nullable="false"/>
+        <Property Name="IsActiveEntity" Type="Edm.Boolean" Nullable="false"/>
+        <Property Name="Edit_ac" Type="Edm.Boolean"/>
+        <Property Name="Delete_mc" Type="Edm.Boolean"/>
+        <Property Name="Update_mc" Type="Edm.Boolean"/>
+        <Property Name="to_Leaves_oc" Type="Edm.Boolean"/>
+        <Property Name="emplname" Type="Edm.String" MaxLength="50"/>
+        <Property Name="empldepartment" Type="Edm.String" MaxLength="30"/>
+        <Property Name="emplposition" Type="Edm.String" MaxLength="30"/>
+        <Property Name="emplemail" Type="Edm.String" MaxLength="50"/>
+        <Property Name="emplhire_date" Type="Edm.Date"/>
+        <Property Name="LocalCreatedBy" Type="Edm.String" MaxLength="12"/>
+        <Property Name="LocalCreatedAt" Type="Edm.DateTimeOffset" Precision="7"/>
+        <Property Name="LocalLastChangedBy" Type="Edm.String" MaxLength="12"/>
+        <Property Name="LocalLastChangedAt" Type="Edm.DateTimeOffset" Precision="7"/>
+        <Property Name="LastChangedAt" Type="Edm.DateTimeOffset" Precision="7"/>
+        <Property Name="HasDraftEntity" Type="Edm.Boolean"/>
+        <Property Name="DraftEntityCreationDateTime" Type="Edm.DateTimeOffset" Precision="7"/>
+        <Property Name="DraftEntityLastChangeDateTime" Type="Edm.DateTimeOffset" Precision="7"/>
+        <Property Name="HasActiveEntity" Type="Edm.Boolean"/>
+        <NavigationProperty Name="SiblingEntity" Type="DataMaintenanceService.EmployeesS4"/>
+        <NavigationProperty Name="to_Leaves" Type="Collection(DataMaintenanceService.Leaves1)">
+          <OnDelete Action="Cascade"/>
+        </NavigationProperty>
+      </EntityType>
+      <EntityType Name="Leaves1">
+        <Key>
+          <PropertyRef Name="uuid"/>
+          <PropertyRef Name="leaveid"/>
+          <PropertyRef Name="emplid"/>
+          <PropertyRef Name="IsActiveEntity"/>
+        </Key>
+        <Property Name="uuid" Type="Edm.Guid" Nullable="false"/>
+        <Property Name="leaveid" Type="Edm.String" MaxLength="50" Nullable="false"/>
+        <Property Name="emplid" Type="Edm.String" MaxLength="50" Nullable="false"/>
+        <Property Name="IsActiveEntity" Type="Edm.Boolean" Nullable="false"/>
+        <Property Name="Delete_mc" Type="Edm.Boolean"/>
+        <Property Name="Update_mc" Type="Edm.Boolean"/>
+        <Property Name="empluuid" Type="Edm.Guid"/>
+        <Property Name="leave_type" Type="Edm.String" MaxLength="20"/>
+        <Property Name="start_date" Type="Edm.Date"/>
+        <Property Name="end_date" Type="Edm.Date"/>
+        <Property Name="status" Type="Edm.String" MaxLength="15"/>
+        <Property Name="reason" Type="Edm.String" MaxLength="100"/>
+        <Property Name="LocalCreatedBy" Type="Edm.String" MaxLength="12"/>
+        <Property Name="LocalCreatedAt" Type="Edm.DateTimeOffset" Precision="7"/>
+        <Property Name="LocalLastChangedBy" Type="Edm.String" MaxLength="12"/>
+        <Property Name="LocalLastChangedAt" Type="Edm.DateTimeOffset" Precision="7"/>
+        <Property Name="LastChangedAt" Type="Edm.DateTimeOffset" Precision="7"/>
+        <Property Name="HasDraftEntity" Type="Edm.Boolean"/>
+        <Property Name="DraftEntityCreationDateTime" Type="Edm.DateTimeOffset" Precision="7"/>
+        <Property Name="DraftEntityLastChangeDateTime" Type="Edm.DateTimeOffset" Precision="7"/>
+        <Property Name="HasActiveEntity" Type="Edm.Boolean"/>
+        <NavigationProperty Name="to_Employee" Type="DataMaintenanceService.EmployeesS4"/>
+        <NavigationProperty Name="SiblingEntity" Type="DataMaintenanceService.Leaves1"/>
       </EntityType>
       <EntityType Name="DraftAdministrativeData">
         <Key>
@@ -172,6 +243,123 @@
       </Annotations>
       <Annotations Target="DataMaintenanceService.Employees/DraftMessages">
         <Annotation Term="Core.Computed" Bool="true"/>
+      </Annotations>
+      <Annotations Target="DataMaintenanceService.EmployeesS4">
+        <Annotation Term="UI.FieldGroup" Qualifier="GeneratedGroup">
+          <Record Type="UI.FieldGroupType">
+            <PropertyValue Property="Data">
+              <Collection>
+                <Record Type="UI.DataField">
+                  <PropertyValue Property="Label" String="emplid"/>
+                  <PropertyValue Property="Value" Path="emplid"/>
+                </Record>
+                <Record Type="UI.DataField">
+                  <PropertyValue Property="Label" String="Edit_ac"/>
+                  <PropertyValue Property="Value" Path="Edit_ac"/>
+                </Record>
+                <Record Type="UI.DataField">
+                  <PropertyValue Property="Label" String="Delete_mc"/>
+                  <PropertyValue Property="Value" Path="Delete_mc"/>
+                </Record>
+                <Record Type="UI.DataField">
+                  <PropertyValue Property="Label" String="Update_mc"/>
+                  <PropertyValue Property="Value" Path="Update_mc"/>
+                </Record>
+                <Record Type="UI.DataField">
+                  <PropertyValue Property="Label" String="to_Leaves_oc"/>
+                  <PropertyValue Property="Value" Path="to_Leaves_oc"/>
+                </Record>
+                <Record Type="UI.DataField">
+                  <PropertyValue Property="Label" String="emplname"/>
+                  <PropertyValue Property="Value" Path="emplname"/>
+                </Record>
+                <Record Type="UI.DataField">
+                  <PropertyValue Property="Label" String="empldepartment"/>
+                  <PropertyValue Property="Value" Path="empldepartment"/>
+                </Record>
+                <Record Type="UI.DataField">
+                  <PropertyValue Property="Label" String="emplposition"/>
+                  <PropertyValue Property="Value" Path="emplposition"/>
+                </Record>
+                <Record Type="UI.DataField">
+                  <PropertyValue Property="Label" String="emplemail"/>
+                  <PropertyValue Property="Value" Path="emplemail"/>
+                </Record>
+                <Record Type="UI.DataField">
+                  <PropertyValue Property="Label" String="emplhire_date"/>
+                  <PropertyValue Property="Value" Path="emplhire_date"/>
+                </Record>
+                <Record Type="UI.DataField">
+                  <PropertyValue Property="Label" String="LocalCreatedBy"/>
+                  <PropertyValue Property="Value" Path="LocalCreatedBy"/>
+                </Record>
+                <Record Type="UI.DataField">
+                  <PropertyValue Property="Label" String="LocalCreatedAt"/>
+                  <PropertyValue Property="Value" Path="LocalCreatedAt"/>
+                </Record>
+                <Record Type="UI.DataField">
+                  <PropertyValue Property="Label" String="LocalLastChangedBy"/>
+                  <PropertyValue Property="Value" Path="LocalLastChangedBy"/>
+                </Record>
+                <Record Type="UI.DataField">
+                  <PropertyValue Property="Label" String="LocalLastChangedAt"/>
+                  <PropertyValue Property="Value" Path="LocalLastChangedAt"/>
+                </Record>
+                <Record Type="UI.DataField">
+                  <PropertyValue Property="Label" String="LastChangedAt"/>
+                  <PropertyValue Property="Value" Path="LastChangedAt"/>
+                </Record>
+                <Record Type="UI.DataField">
+                  <PropertyValue Property="Label" String="DraftEntityCreationDateTime"/>
+                  <PropertyValue Property="Value" Path="DraftEntityCreationDateTime"/>
+                </Record>
+                <Record Type="UI.DataField">
+                  <PropertyValue Property="Label" String="DraftEntityLastChangeDateTime"/>
+                  <PropertyValue Property="Value" Path="DraftEntityLastChangeDateTime"/>
+                </Record>
+              </Collection>
+            </PropertyValue>
+          </Record>
+        </Annotation>
+        <Annotation Term="UI.Facets">
+          <Collection>
+            <Record Type="UI.ReferenceFacet">
+              <PropertyValue Property="ID" String="GeneratedFacet1"/>
+              <PropertyValue Property="Label" String="General Information"/>
+              <PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#GeneratedGroup"/>
+            </Record>
+          </Collection>
+        </Annotation>
+        <Annotation Term="UI.LineItem">
+          <Collection>
+            <Record Type="UI.DataField">
+              <PropertyValue Property="Label" String="DraftEntityLastChangeDateTime"/>
+              <PropertyValue Property="Value" Path="DraftEntityLastChangeDateTime"/>
+            </Record>
+            <Record Type="UI.DataField">
+              <PropertyValue Property="Label" String="emplid"/>
+              <PropertyValue Property="Value" Path="emplid"/>
+            </Record>
+            <Record Type="UI.DataField">
+              <PropertyValue Property="Label" String="Edit_ac"/>
+              <PropertyValue Property="Value" Path="Edit_ac"/>
+            </Record>
+            <Record Type="UI.DataField">
+              <PropertyValue Property="Label" String="Delete_mc"/>
+              <PropertyValue Property="Value" Path="Delete_mc"/>
+            </Record>
+            <Record Type="UI.DataField">
+              <PropertyValue Property="Label" String="Update_mc"/>
+              <PropertyValue Property="Value" Path="Update_mc"/>
+            </Record>
+          </Collection>
+        </Annotation>
+      </Annotations>
+      <Annotations Target="DataMaintenanceService.EmployeesS4/uuid">
+        <Annotation Term="Core.ComputedDefaultValue" Bool="true"/>
+      </Annotations>
+      <Annotations Target="DataMaintenanceService.Leaves1/uuid">
+        <Annotation Term="Core.ComputedDefaultValue" Bool="true"/>
       </Annotations>
       <Annotations Target="DataMaintenanceService.DraftAdministrativeData">
         <Annotation Term="Common.Label" String="{i18n>Draft_DraftAdministrativeData}"/>
