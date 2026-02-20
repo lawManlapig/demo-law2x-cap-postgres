@@ -29,12 +29,15 @@
     "undeploy": "cf undeploy demo-law2x-cap-postgres --delete-services --delete-service-keys --delete-service-brokers",
     "build": "rimraf resources mta_archives && mbt build --mtar archive",
     "deploy": "cf deploy mta_archives/archive.mtar --retries 1",
-    "watch-employees-s4": "cds watch --open employeess4/index.html?sap-ui-xx-viewCache=false --livereload false"
+    "watch-employees-s4": "cds watch --open employeess4/index.html?sap-ui-xx-viewCache=false --livereload false",
+    "watch-bp-app": "cds watch --open bpapp/index.html?sap-ui-xx-viewCache=false --livereload false",
+    "watch-northwind-test": "cds watch --open northwindtest/index.html?sap-ui-xx-viewCache=false --livereload false",
+    "w": "cds-ts w --profile hybrid"
   },
   "private": true,
   "cds": {
     "requires": {
-      "auth": "xsuaa",
+      "auth": "mocked",
       "BS4200_Employees_v2": {
         "kind": "odata-v2",
         "model": "srv/external/BS4200_Employees_v2",
@@ -42,12 +45,30 @@
           "destination": "BS4-200-Destination",
           "path": "/sap/opu/odata/sap/ZSB_EMPLOYEE_UI_O2"
         }
+      },
+      "ZTST_SB_CUSTOM_V2": {
+        "kind": "odata-v2",
+        "model": "srv/external/ZTST_SB_CUSTOM_V2",
+        "credentials": {
+          "destination": "BS4-200-Destination",
+          "path": "/sap/opu/odata/sap/ZTST_SB_CUSTOM_V2"
+        }
+      },
+      "NorthwindV4": {
+        "kind": "odata",
+        "model": "srv/external/NorthwindV4",
+        "credentials": {
+          "destination": "Test-NorthwindV4",
+          "path": "/v4/northwind/northwind.svc"
+        }
       }
     }
   },
   "sapux": [
     "app/employees-app",
-    "app/employees-s4"
+    "app/employees-s4",
+    "app/bp-app",
+    "app/northwind-test"
   ],
   "imports": {
     "#cds-models/*": "./@cds-models/*/index.js"

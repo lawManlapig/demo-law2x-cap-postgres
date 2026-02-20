@@ -6,3 +6,8 @@ entity Employees : cuid {
     firstName : String;
     lastName  : String;
 }
+
+entity BusinessPartners : cuid {
+    BusinessPartner         : String;
+    BusinessPartnerFullName : String;
+}

@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <edmx:Edmx Version="4.0" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+  <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Capabilities.V1.xml">
+    <edmx:Include Alias="Capabilities" Namespace="Org.OData.Capabilities.V1"/>
+  </edmx:Reference>
   <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/Common.xml">
     <edmx:Include Alias="Common" Namespace="com.sap.vocabularies.Common.v1"/>
   </edmx:Reference>
@@ -27,6 +30,8 @@
           <NavigationPropertyBinding Path="SiblingEntity" Target="EmployeesS4"/>
           <NavigationPropertyBinding Path="to_Leaves" Target="Leaves1"/>
         </EntitySet>
+        <EntitySet Name="BusinessPartner" EntityType="DataMaintenanceService.BusinessPartner"/>
+        <EntitySet Name="Products" EntityType="DataMaintenanceService.Products"/>
         <EntitySet Name="Leaves1" EntityType="DataMaintenanceService.Leaves1">
           <NavigationPropertyBinding Path="to_Employee" Target="EmployeesS4"/>
           <NavigationPropertyBinding Path="SiblingEntity" Target="Leaves1"/>
@@ -78,6 +83,20 @@
         <NavigationProperty Name="to_Leaves" Type="Collection(DataMaintenanceService.Leaves1)">
           <OnDelete Action="Cascade"/>
         </NavigationProperty>
+      </EntityType>
+      <EntityType Name="BusinessPartner">
+        <Key>
+          <PropertyRef Name="BusinessPartner"/>
+        </Key>
+        <Property Name="BusinessPartner" Type="Edm.String" MaxLength="10" Nullable="false"/>
+        <Property Name="BusinessPartnerFullName" Type="Edm.String" MaxLength="81"/>
+      </EntityType>
+      <EntityType Name="Products">
+        <Key>
+          <PropertyRef Name="ProductID"/>
+        </Key>
+        <Property Name="ProductID" Type="Edm.Int32" Nullable="false"/>
+        <Property Name="ProductName" Type="Edm.String"/>
       </EntityType>
       <EntityType Name="Leaves1">
         <Key>
@@ -357,6 +376,91 @@
       </Annotations>
       <Annotations Target="DataMaintenanceService.EmployeesS4/uuid">
         <Annotation Term="Core.ComputedDefaultValue" Bool="true"/>
+      </Annotations>
+      <Annotations Target="DataMaintenanceService.BusinessPartner">
+        <Annotation Term="UI.FieldGroup" Qualifier="GeneratedGroup">
+          <Record Type="UI.FieldGroupType">
+            <PropertyValue Property="Data">
+              <Collection>
+                <Record Type="UI.DataField">
+                  <PropertyValue Property="Label" String="Business Partner"/>
+                  <PropertyValue Property="Value" Path="BusinessPartner"/>
+                </Record>
+                <Record Type="UI.DataField">
+                  <PropertyValue Property="Label" String="Full Name"/>
+                  <PropertyValue Property="Value" Path="BusinessPartnerFullName"/>
+                </Record>
+              </Collection>
+            </PropertyValue>
+          </Record>
+        </Annotation>
+        <Annotation Term="UI.Facets">
+          <Collection>
+            <Record Type="UI.ReferenceFacet">
+              <PropertyValue Property="ID" String="GeneratedFacet1"/>
+              <PropertyValue Property="Label" String="General Information"/>
+              <PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#GeneratedGroup"/>
+            </Record>
+          </Collection>
+        </Annotation>
+        <Annotation Term="UI.LineItem">
+          <Collection>
+            <Record Type="UI.DataField">
+              <PropertyValue Property="Label" String="Business Partner"/>
+              <PropertyValue Property="Value" Path="BusinessPartner"/>
+            </Record>
+            <Record Type="UI.DataField">
+              <PropertyValue Property="Label" String="Full Name"/>
+              <PropertyValue Property="Value" Path="BusinessPartnerFullName"/>
+            </Record>
+          </Collection>
+        </Annotation>
+      </Annotations>
+      <Annotations Target="DataMaintenanceService.EntityContainer/BusinessPartner">
+        <Annotation Term="Capabilities.DeleteRestrictions">
+          <Record Type="Capabilities.DeleteRestrictionsType">
+            <PropertyValue Property="Deletable" Bool="false"/>
+          </Record>
+        </Annotation>
+      </Annotations>
+      <Annotations Target="DataMaintenanceService.Products">
+        <Annotation Term="UI.FieldGroup" Qualifier="GeneratedGroup">
+          <Record Type="UI.FieldGroupType">
+            <PropertyValue Property="Data">
+              <Collection>
+                <Record Type="UI.DataField">
+                  <PropertyValue Property="Label" String="ProductID"/>
+                  <PropertyValue Property="Value" Path="ProductID"/>
+                </Record>
+                <Record Type="UI.DataField">
+                  <PropertyValue Property="Label" String="ProductName"/>
+                  <PropertyValue Property="Value" Path="ProductName"/>
+                </Record>
+              </Collection>
+            </PropertyValue>
+          </Record>
+        </Annotation>
+        <Annotation Term="UI.Facets">
+          <Collection>
+            <Record Type="UI.ReferenceFacet">
+              <PropertyValue Property="ID" String="GeneratedFacet1"/>
+              <PropertyValue Property="Label" String="General Information"/>
+              <PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#GeneratedGroup"/>
+            </Record>
+          </Collection>
+        </Annotation>
+        <Annotation Term="UI.LineItem">
+          <Collection>
+            <Record Type="UI.DataField">
+              <PropertyValue Property="Label" String="ProductID"/>
+              <PropertyValue Property="Value" Path="ProductID"/>
+            </Record>
+            <Record Type="UI.DataField">
+              <PropertyValue Property="Label" String="ProductName"/>
+              <PropertyValue Property="Value" Path="ProductName"/>
+            </Record>
+          </Collection>
+        </Annotation>
       </Annotations>
       <Annotations Target="DataMaintenanceService.Leaves1/uuid">
         <Annotation Term="Core.ComputedDefaultValue" Bool="true"/>

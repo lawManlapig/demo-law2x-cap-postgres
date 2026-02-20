@@ -438,6 +438,167 @@
         }
       }
     },
+    "DataMaintenanceService.BusinessPartner": {
+      "kind": "entity",
+      "@Capabilities.DeleteRestrictions.Deletable": false,
+      "@UI.FieldGroup#GeneratedGroup.$Type": "UI.FieldGroupType",
+      "@UI.FieldGroup#GeneratedGroup.Data": [
+        {
+          "$Type": "UI.DataField",
+          "Label": "Business Partner",
+          "Value": {
+            "=": "BusinessPartner"
+          }
+        },
+        {
+          "$Type": "UI.DataField",
+          "Label": "Full Name",
+          "Value": {
+            "=": "BusinessPartnerFullName"
+          }
+        }
+      ],
+      "@UI.Facets": [
+        {
+          "$Type": "UI.ReferenceFacet",
+          "ID": "GeneratedFacet1",
+          "Label": "General Information",
+          "Target": "@UI.FieldGroup#GeneratedGroup"
+        }
+      ],
+      "@UI.LineItem": [
+        {
+          "$Type": "UI.DataField",
+          "Label": "Business Partner",
+          "Value": {
+            "=": "BusinessPartner"
+          }
+        },
+        {
+          "$Type": "UI.DataField",
+          "Label": "Full Name",
+          "Value": {
+            "=": "BusinessPartnerFullName"
+          }
+        }
+      ],
+      "@cds.persistence.skip": true,
+      "@sap.creatable": "false",
+      "@sap.updatable": "false",
+      "@sap.deletable": "false",
+      "@sap.content.version": "1",
+      "@sap.label": "Read-Only CDS for ABAP Cloud",
+      "projection": {
+        "from": {
+          "ref": [
+            "ZTST_SB_CUSTOM_V2.ZTST_C_BusinessPartner"
+          ]
+        },
+        "columns": [
+          {
+            "key": true,
+            "ref": [
+              "BusinessPartner"
+            ]
+          },
+          {
+            "ref": [
+              "BusinessPartnerFullName"
+            ]
+          }
+        ]
+      },
+      "elements": {
+        "BusinessPartner": {
+          "@sap.display.format": "UpperCase",
+          "@sap.label": "Business Partner",
+          "@sap.quickinfo": "Business Partner Number",
+          "key": true,
+          "type": "cds.String",
+          "length": 10,
+          "notNull": true
+        },
+        "BusinessPartnerFullName": {
+          "type": "cds.String",
+          "length": 81
+        }
+      }
+    },
+    "DataMaintenanceService.Products": {
+      "kind": "entity",
+      "@UI.FieldGroup#GeneratedGroup.$Type": "UI.FieldGroupType",
+      "@UI.FieldGroup#GeneratedGroup.Data": [
+        {
+          "$Type": "UI.DataField",
+          "Label": "ProductID",
+          "Value": {
+            "=": "ProductID"
+          }
+        },
+        {
+          "$Type": "UI.DataField",
+          "Label": "ProductName",
+          "Value": {
+            "=": "ProductName"
+          }
+        }
+      ],
+      "@UI.Facets": [
+        {
+          "$Type": "UI.ReferenceFacet",
+          "ID": "GeneratedFacet1",
+          "Label": "General Information",
+          "Target": "@UI.FieldGroup#GeneratedGroup"
+        }
+      ],
+      "@UI.LineItem": [
+        {
+          "$Type": "UI.DataField",
+          "Label": "ProductID",
+          "Value": {
+            "=": "ProductID"
+          }
+        },
+        {
+          "$Type": "UI.DataField",
+          "Label": "ProductName",
+          "Value": {
+            "=": "ProductName"
+          }
+        }
+      ],
+      "@cds.persistence.skip": true,
+      "projection": {
+        "from": {
+          "ref": [
+            "NorthwindV4.Products"
+          ]
+        },
+        "columns": [
+          {
+            "key": true,
+            "ref": [
+              "ProductID"
+            ]
+          },
+          {
+            "ref": [
+              "ProductName"
+            ]
+          }
+        ]
+      },
+      "elements": {
+        "ProductID": {
+          "key": true,
+          "type": "cds.Integer",
+          "notNull": true
+        },
+        "ProductName": {
+          "type": "cds.String"
+        }
+      }
+    },
     "cds.outbox.Messages": {
       "kind": "entity",
       "elements": {
@@ -1639,6 +1800,1697 @@
           "type": "cds.String",
           "length": 256,
           "notNull": true
+        }
+      }
+    },
+    "ZTST_SB_CUSTOM_V2": {
+      "@source": "srv/external/ZTST_SB_CUSTOM_V2.cds",
+      "kind": "service",
+      "@cds.external": true,
+      "@m.IsDefaultEntityContainer": "true",
+      "@sap.message.scope.supported": "true",
+      "@sap.supported.formats": "atom json xlsx"
+    },
+    "ZTST_SB_CUSTOM_V2.ZTST_C_BusinessPartner": {
+      "kind": "entity",
+      "@cds.external": true,
+      "@cds.persistence.skip": true,
+      "@sap.creatable": "false",
+      "@sap.updatable": "false",
+      "@sap.deletable": "false",
+      "@sap.content.version": "1",
+      "@sap.label": "Read-Only CDS for ABAP Cloud",
+      "elements": {
+        "BusinessPartner": {
+          "@sap.display.format": "UpperCase",
+          "@sap.label": "Business Partner",
+          "@sap.quickinfo": "Business Partner Number",
+          "key": true,
+          "type": "cds.String",
+          "length": 10,
+          "notNull": true
+        },
+        "BusinessPartnerCategory": {
+          "@sap.display.format": "UpperCase",
+          "@sap.label": "BP Category",
+          "@sap.quickinfo": "Business Partner Category",
+          "type": "cds.String",
+          "length": 1
+        },
+        "AuthorizationGroup": {
+          "@sap.display.format": "UpperCase",
+          "@sap.label": "Authorization Group",
+          "type": "cds.String",
+          "length": 4
+        },
+        "BusinessPartnerUUID": {
+          "@sap.label": "BP GUID",
+          "@sap.quickinfo": "Business Partner GUID",
+          "type": "cds.UUID"
+        },
+        "PersonNumber": {
+          "@sap.display.format": "UpperCase",
+          "@sap.label": "Person Number",
+          "type": "cds.String",
+          "length": 10
+        },
+        "ETag": {
+          "type": "cds.String",
+          "length": 26
+        },
+        "BusinessPartnerName": {
+          "type": "cds.String",
+          "length": 81
+        },
+        "BusinessPartnerFullName": {
+          "type": "cds.String",
+          "length": 81
+        },
+        "CreatedByUser": {
+          "@sap.display.format": "UpperCase",
+          "@sap.label": "Created by",
+          "@sap.quickinfo": "User who created the object",
+          "type": "cds.String",
+          "length": 12
+        },
+        "CreationDate": {
+          "@sap.display.format": "Date",
+          "@sap.label": "Created On",
+          "@sap.quickinfo": "Date on which the object was created",
+          "type": "cds.Date"
+        },
+        "CreationTime": {
+          "@sap.label": "Created at",
+          "@sap.quickinfo": "Time at which the object was created",
+          "type": "cds.Time"
+        },
+        "LastChangedByUser": {
+          "@sap.display.format": "UpperCase",
+          "@sap.label": "Changed by",
+          "@sap.quickinfo": "Last user to change object",
+          "type": "cds.String",
+          "length": 12
+        },
+        "LastChangeDate": {
+          "@sap.display.format": "Date",
+          "@sap.label": "Changed on",
+          "@sap.quickinfo": "Date when object was last changed",
+          "type": "cds.Date"
+        },
+        "LastChangeTime": {
+          "@sap.label": "Changed at",
+          "@sap.quickinfo": "Time at which object was last changed",
+          "type": "cds.Time"
+        },
+        "BusinessPartnerIsBlocked": {
+          "@sap.label": "Central Block",
+          "@sap.quickinfo": "Central Block for Business Partner",
+          "type": "cds.Boolean"
+        },
+        "IsBusinessPurposeCompleted": {
+          "@sap.display.format": "UpperCase",
+          "@sap.label": "Purpose Completed",
+          "@sap.quickinfo": "Business Purpose Completed Flag",
+          "type": "cds.String",
+          "length": 1
+        },
+        "FirstName": {
+          "@sap.label": "First Name",
+          "@sap.quickinfo": "First Name of Business Partner (Person)",
+          "type": "cds.String",
+          "length": 40
+        },
+        "LastName": {
+          "@sap.label": "Last Name",
+          "@sap.quickinfo": "Last Name of Business Partner (Person)",
+          "type": "cds.String",
+          "length": 40
+        },
+        "PersonFullName": {
+          "@sap.label": "Full Name",
+          "type": "cds.String",
+          "length": 80
+        },
+        "OrganizationBPName1": {
+          "@sap.label": "Name 1",
+          "@sap.quickinfo": "Name 1 of organization",
+          "type": "cds.String",
+          "length": 40
+        },
+        "OrganizationBPName2": {
+          "@sap.label": "Name 2",
+          "@sap.quickinfo": "Name 2 of organization",
+          "type": "cds.String",
+          "length": 40
+        },
+        "OrganizationBPName3": {
+          "@sap.label": "Name 3",
+          "@sap.quickinfo": "Name 3 of organization",
+          "type": "cds.String",
+          "length": 40
+        },
+        "OrganizationBPName4": {
+          "@sap.label": "Name 4",
+          "@sap.quickinfo": "Name 4 of organization",
+          "type": "cds.String",
+          "length": 40
+        },
+        "InternationalLocationNumber1": {
+          "@sap.display.format": "NonNegative",
+          "@sap.label": "Int. location no. 1",
+          "@sap.quickinfo": "International location number (part 1)",
+          "type": "cds.String",
+          "length": 7
+        },
+        "InternationalLocationNumber2": {
+          "@sap.display.format": "NonNegative",
+          "@sap.label": "Int. location no. 2",
+          "@sap.quickinfo": "International location number (Part 2)",
+          "type": "cds.String",
+          "length": 5
+        },
+        "InternationalLocationNumber3": {
+          "@sap.display.format": "NonNegative",
+          "@sap.label": "Check digit",
+          "@sap.quickinfo": "Check digit for the international location number",
+          "type": "cds.String",
+          "length": 1
+        },
+        "LegalForm": {
+          "@sap.display.format": "UpperCase",
+          "@sap.label": "Legal form",
+          "@sap.quickinfo": "BP: Legal form of organization",
+          "type": "cds.String",
+          "length": 2
+        },
+        "OrganizationFoundationDate": {
+          "@sap.display.format": "Date",
+          "@sap.label": "Date founded",
+          "@sap.quickinfo": "Date organization founded",
+          "type": "cds.Date"
+        },
+        "OrganizationLiquidationDate": {
+          "@sap.display.format": "Date",
+          "@sap.label": "Liquidation date",
+          "@sap.quickinfo": "Liquidation date of organization",
+          "type": "cds.Date"
+        },
+        "Industry": {
+          "@sap.display.format": "UpperCase",
+          "@sap.label": "Industry sector",
+          "type": "cds.String",
+          "length": 10
+        },
+        "IsNaturalPerson": {
+          "@sap.display.format": "UpperCase",
+          "@sap.label": "Natural Person",
+          "@sap.quickinfo": "Business Partner Is a Natural Person Under the Tax Laws",
+          "type": "cds.String",
+          "length": 1
+        },
+        "IsFemale": {
+          "@sap.label": "Female",
+          "@sap.quickinfo": "Selection: Business partner is female",
+          "type": "cds.Boolean"
+        },
+        "IsMale": {
+          "@sap.label": "Male",
+          "@sap.quickinfo": "Selection: Business partner is male",
+          "type": "cds.Boolean"
+        },
+        "IsSexUnknown": {
+          "@sap.label": "Unknown",
+          "@sap.quickinfo": "Selection: Sex of business partner is not known",
+          "type": "cds.Boolean"
+        },
+        "FormOfAddress": {
+          "@sap.display.format": "UpperCase",
+          "@sap.label": "Title Key",
+          "@sap.quickinfo": "Form-of-Address Key",
+          "type": "cds.String",
+          "length": 4
+        },
+        "AcademicTitle": {
+          "@sap.display.format": "UpperCase",
+          "@sap.label": "Academic Title 1",
+          "@sap.quickinfo": "Academic Title: Key",
+          "type": "cds.String",
+          "length": 4
+        },
+        "AcademicTitle2": {
+          "@sap.display.format": "UpperCase",
+          "@sap.label": "2nd academic title",
+          "@sap.quickinfo": "Second academic title (key)",
+          "type": "cds.String",
+          "length": 4
+        },
+        "NameFormat": {
+          "@sap.display.format": "UpperCase",
+          "@sap.label": "Name Format",
+          "@sap.quickinfo": "Name format",
+          "type": "cds.String",
+          "length": 2
+        },
+        "NameCountry": {
+          "@sap.display.format": "UpperCase",
+          "@sap.label": "Ctry/Reg. for Format",
+          "@sap.quickinfo": "Country/Region for Name Format Rule",
+          "type": "cds.String",
+          "length": 3
+        },
+        "BusinessPartnerGrouping": {
+          "@sap.display.format": "UpperCase",
+          "@sap.label": "Grouping",
+          "@sap.quickinfo": "Business Partner Grouping",
+          "type": "cds.String",
+          "length": 4
+        },
+        "BusinessPartnerType": {
+          "@sap.display.format": "UpperCase",
+          "@sap.label": "BP Type",
+          "@sap.quickinfo": "Business Partner Type",
+          "type": "cds.String",
+          "length": 4
+        },
+        "MiddleName": {
+          "@sap.label": "Middle Name",
+          "@sap.quickinfo": "Middle name or second forename of a person",
+          "type": "cds.String",
+          "length": 40
+        },
+        "AdditionalLastName": {
+          "@sap.label": "Other Last Name",
+          "@sap.quickinfo": "Other Last Name of a Person",
+          "type": "cds.String",
+          "length": 40
+        },
+        "GroupBusinessPartnerName1": {
+          "@sap.label": "Name 1",
+          "@sap.quickinfo": "Name 1 (group)",
+          "type": "cds.String",
+          "length": 40
+        },
+        "GroupBusinessPartnerName2": {
+          "@sap.label": "Name 2",
+          "@sap.quickinfo": "Name 2 (group)",
+          "type": "cds.String",
+          "length": 40
+        },
+        "CorrespondenceLanguage": {
+          "@sap.label": "Correspondence lang.",
+          "@sap.quickinfo": "Business Partner: Correspondence Language",
+          "type": "cds.String",
+          "length": 2
+        },
+        "Language": {
+          "@sap.label": "Language",
+          "@sap.quickinfo": "Business partner: Language",
+          "type": "cds.String",
+          "length": 2
+        },
+        "SearchTerm1": {
+          "@sap.display.format": "UpperCase",
+          "@sap.label": "Search Term 1",
+          "@sap.quickinfo": "Search Term 1 for Business Partner",
+          "type": "cds.String",
+          "length": 20
+        },
+        "SearchTerm2": {
+          "@sap.display.format": "UpperCase",
+          "@sap.label": "Search Term 2",
+          "@sap.quickinfo": "Search Term 2 for Business Partner",
+          "type": "cds.String",
+          "length": 20
+        },
+        "BPLastNameSearchHelp": {
+          "@sap.display.format": "UpperCase",
+          "@sap.label": "Name 1/Last Name",
+          "@sap.quickinfo": "Search Help Field 1 (Name 1/Last Name)",
+          "type": "cds.String",
+          "length": 35
+        },
+        "BPFirstNameSearchHelp": {
+          "@sap.display.format": "UpperCase",
+          "@sap.label": "Name 2/First Name",
+          "@sap.quickinfo": "Search Help Field 2 (Name 2/First Name)",
+          "type": "cds.String",
+          "length": 35
+        },
+        "BusinessPartnerNicknameLabel": {
+          "@sap.label": "Known As",
+          "@sap.quickinfo": "Nickname of Business Partner (Person)",
+          "type": "cds.String",
+          "length": 40
+        },
+        "IndependentAddressID": {
+          "@sap.display.format": "UpperCase",
+          "@sap.label": "Address Number",
+          "type": "cds.String",
+          "length": 10
+        },
+        "IsActiveEntity": {
+          "@sap.label": "Is active",
+          "@sap.quickinfo": "Draft - Indicator - Is active document",
+          "type": "cds.Boolean"
+        },
+        "BirthDate": {
+          "@sap.display.format": "Date",
+          "@sap.label": "Date of Birth",
+          "@sap.quickinfo": "Date of Birth of Business Partner",
+          "type": "cds.Date"
+        },
+        "IsMarkedForArchiving": {
+          "@sap.label": "Archiving Flag",
+          "@sap.quickinfo": "Central Archiving Flag",
+          "type": "cds.Boolean"
+        },
+        "ContactPermission": {
+          "@sap.display.format": "UpperCase",
+          "@sap.label": "Contact",
+          "@sap.quickinfo": "Business Partner: Contact Permission",
+          "type": "cds.String",
+          "length": 1
+        },
+        "BusinessPartnerIDByExtSystem": {
+          "@sap.display.format": "UpperCase",
+          "@sap.label": "External BP Number",
+          "@sap.quickinfo": "Business Partner Number in External System",
+          "type": "cds.String",
+          "length": 20
+        },
+        "LegalEntityOfOrganization": {
+          "@sap.display.format": "UpperCase",
+          "@sap.label": "Legal entity",
+          "@sap.quickinfo": "Legal Entity of Organization",
+          "type": "cds.String",
+          "length": 2
+        },
+        "BusinessPartnerPrintFormat": {
+          "@sap.display.format": "UpperCase",
+          "@sap.label": "Print Format",
+          "@sap.quickinfo": "Business Partner Print Format",
+          "type": "cds.String",
+          "length": 1
+        },
+        "BusinessPartnerDataOriginType": {
+          "@sap.display.format": "UpperCase",
+          "@sap.label": "Data Origin",
+          "@sap.quickinfo": "Data Origin Types",
+          "type": "cds.String",
+          "length": 4
+        },
+        "BusinessPartnerIsNotReleased": {
+          "@sap.label": "Not Released",
+          "@sap.quickinfo": "Indicator: Not Released",
+          "type": "cds.Boolean"
+        },
+        "IsNotContractuallyCapable": {
+          "@sap.label": "Not Legally Competnt",
+          "@sap.quickinfo": "Indicator: Not Legally Competent",
+          "type": "cds.Boolean"
+        },
+        "BusinessPartnerOccupation": {
+          "@sap.display.format": "UpperCase",
+          "@sap.label": "Occupation",
+          "@sap.quickinfo": "Occupation/group",
+          "type": "cds.String",
+          "length": 4
+        },
+        "BusPartMaritalStatus": {
+          "@sap.display.format": "UpperCase",
+          "@sap.label": "Marital Status",
+          "@sap.quickinfo": "Marital Status of Business Partner",
+          "type": "cds.String",
+          "length": 1
+        },
+        "BusPartNationality": {
+          "@sap.display.format": "UpperCase",
+          "@sap.label": "Nationality",
+          "type": "cds.String",
+          "length": 3
+        },
+        "NonResidentCompanyOriginCntry": {
+          "@sap.display.format": "UpperCase",
+          "@sap.label": "Ctry/Reg. of Origin",
+          "@sap.quickinfo": "Country/Region of Origin: Non-Resident Companies",
+          "type": "cds.String",
+          "length": 3
+        },
+        "BusinessPartnerSalutation": {
+          "@sap.label": "Salutation",
+          "type": "cds.String",
+          "length": 50
+        },
+        "BusinessPartnerBirthName": {
+          "@sap.label": "Name at Birth",
+          "@sap.quickinfo": "Name at birth of business partner",
+          "type": "cds.String",
+          "length": 40
+        },
+        "BusinessPartnerSupplementName": {
+          "@sap.display.format": "UpperCase",
+          "@sap.label": "Name Supplement",
+          "@sap.quickinfo": "Name supplement, e.g. noble title (key)",
+          "type": "cds.String",
+          "length": 4
+        },
+        "BusinessPartnerBirthplaceName": {
+          "@sap.label": "Birthplace",
+          "@sap.quickinfo": "Birthplace of business partner",
+          "type": "cds.String",
+          "length": 40
+        },
+        "NaturalPersonEmployerName": {
+          "@sap.label": "Employer",
+          "@sap.quickinfo": "Name of Employer of a Natural Person",
+          "type": "cds.String",
+          "length": 35
+        },
+        "BusinessPartnerDeathDate": {
+          "@sap.display.format": "Date",
+          "@sap.label": "Death date",
+          "@sap.quickinfo": "Date of death of business partner",
+          "type": "cds.Date"
+        },
+        "BusinessPartnerBirthDateStatus": {
+          "@sap.display.format": "UpperCase",
+          "@sap.label": "Birth Date Status",
+          "@sap.quickinfo": "Date of Birth: Status",
+          "type": "cds.String",
+          "length": 1
+        },
+        "BusinessPartnerGroupType": {
+          "@sap.display.format": "UpperCase",
+          "@sap.label": "Partner group type",
+          "@sap.quickinfo": "Group type",
+          "type": "cds.String",
+          "length": 4
+        },
+        "LastNamePrefix": {
+          "@sap.display.format": "UpperCase",
+          "@sap.label": "Prefix Key",
+          "@sap.quickinfo": "Name Prefix (Key)",
+          "type": "cds.String",
+          "length": 4
+        },
+        "LastNameSecondPrefix": {
+          "@sap.display.format": "UpperCase",
+          "@sap.label": "2nd prefix",
+          "@sap.quickinfo": "2nd name prefix (key)",
+          "type": "cds.String",
+          "length": 4
+        },
+        "Initials": {
+          "@sap.display.format": "UpperCase",
+          "@sap.label": "Initials",
+          "@sap.quickinfo": "&quot;Middle Initial&quot; or personal initials",
+          "type": "cds.String",
+          "length": 10
+        },
+        "GenderCodeName": {
+          "@sap.display.format": "UpperCase",
+          "@sap.label": "Sex",
+          "@sap.quickinfo": "Sex of business partner (person)",
+          "type": "cds.String",
+          "length": 1
+        },
+        "DataControllerSet": {
+          "@sap.display.format": "UpperCase",
+          "@sap.label": "Data Ctrlr. Set",
+          "@sap.quickinfo": "BP: Data Controller Set Flag",
+          "type": "cds.String",
+          "length": 1
+        },
+        "DataController1": {
+          "@sap.display.format": "UpperCase",
+          "@sap.label": "Data Controller",
+          "@sap.quickinfo": "BP: Data Controller (Internal Use Only)",
+          "type": "cds.String",
+          "length": 30
+        },
+        "DataController2": {
+          "@sap.display.format": "UpperCase",
+          "@sap.label": "Data Controller",
+          "@sap.quickinfo": "BP: Data Controller (Internal Use Only)",
+          "type": "cds.String",
+          "length": 30
+        },
+        "DataController3": {
+          "@sap.display.format": "UpperCase",
+          "@sap.label": "Data Controller",
+          "@sap.quickinfo": "BP: Data Controller (Internal Use Only)",
+          "type": "cds.String",
+          "length": 30
+        },
+        "DataController4": {
+          "@sap.display.format": "UpperCase",
+          "@sap.label": "Data Controller",
+          "@sap.quickinfo": "BP: Data Controller (Internal Use Only)",
+          "type": "cds.String",
+          "length": 30
+        },
+        "DataController5": {
+          "@sap.display.format": "UpperCase",
+          "@sap.label": "Data Controller",
+          "@sap.quickinfo": "BP: Data Controller (Internal Use Only)",
+          "type": "cds.String",
+          "length": 30
+        },
+        "DataController6": {
+          "@sap.display.format": "UpperCase",
+          "@sap.label": "Data Controller",
+          "@sap.quickinfo": "BP: Data Controller (Internal Use Only)",
+          "type": "cds.String",
+          "length": 30
+        },
+        "DataController7": {
+          "@sap.display.format": "UpperCase",
+          "@sap.label": "Data Controller",
+          "@sap.quickinfo": "BP: Data Controller (Internal Use Only)",
+          "type": "cds.String",
+          "length": 30
+        },
+        "DataController8": {
+          "@sap.display.format": "UpperCase",
+          "@sap.label": "Data Controller",
+          "@sap.quickinfo": "BP: Data Controller (Internal Use Only)",
+          "type": "cds.String",
+          "length": 30
+        },
+        "DataController9": {
+          "@sap.display.format": "UpperCase",
+          "@sap.label": "Data Controller",
+          "@sap.quickinfo": "BP: Data Controller (Internal Use Only)",
+          "type": "cds.String",
+          "length": 30
+        },
+        "DataController10": {
+          "@sap.display.format": "UpperCase",
+          "@sap.label": "Data Controller",
+          "@sap.quickinfo": "BP: Data Controller (Internal Use Only)",
+          "type": "cds.String",
+          "length": 30
+        },
+        "BPDataControllerIsNotRequired": {
+          "@sap.label": "DC Not Required",
+          "@sap.quickinfo": "BP: Data Controller Not Required",
+          "type": "cds.Boolean"
+        },
+        "TrdCmplncLicenseIsMilitarySctr": {
+          "@sap.label": "Military use",
+          "@sap.quickinfo": "ID for mainly military use",
+          "type": "cds.Boolean"
+        },
+        "TrdCmplncLicenseIsNuclearSctr": {
+          "@sap.display.format": "UpperCase",
+          "@sap.label": "Nuclear Sector",
+          "@sap.quickinfo": "Nuclear Sector (Indicator)",
+          "type": "cds.String",
+          "length": 1
+        }
+      }
+    },
+    "NorthwindModel.Category_Sales_for_1997": {
+      "kind": "entity",
+      "@cds.external": true,
+      "@cds.persistence.skip": true,
+      "elements": {
+        "CategoryName": {
+          "key": true,
+          "type": "cds.String",
+          "notNull": true
+        },
+        "CategorySales": {
+          "type": "cds.Decimal"
+        }
+      }
+    },
+    "NorthwindModel.Product_Sales_for_1997": {
+      "kind": "entity",
+      "@cds.external": true,
+      "@cds.persistence.skip": true,
+      "elements": {
+        "CategoryName": {
+          "key": true,
+          "type": "cds.String",
+          "notNull": true
+        },
+        "ProductName": {
+          "key": true,
+          "type": "cds.String",
+          "notNull": true
+        },
+        "ProductSales": {
+          "type": "cds.Decimal"
+        }
+      }
+    },
+    "NorthwindV4": {
+      "@source": "srv/external/NorthwindV4.cds",
+      "kind": "service",
+      "@cds.external": true
+    },
+    "NorthwindV4.Categories": {
+      "kind": "entity",
+      "@cds.external": true,
+      "@cds.persistence.skip": true,
+      "elements": {
+        "CategoryID": {
+          "key": true,
+          "type": "cds.Integer",
+          "notNull": true
+        },
+        "CategoryName": {
+          "type": "cds.String"
+        },
+        "Description": {
+          "type": "cds.String"
+        },
+        "Picture": {
+          "type": "cds.LargeBinary"
+        },
+        "Products": {
+          "type": "cds.Association",
+          "cardinality": {
+            "max": "*"
+          },
+          "target": "NorthwindV4.Products",
+          "keys": []
+        }
+      }
+    },
+    "NorthwindV4.CustomerDemographics": {
+      "kind": "entity",
+      "@cds.external": true,
+      "@cds.persistence.skip": true,
+      "elements": {
+        "CustomerTypeID": {
+          "key": true,
+          "type": "cds.String",
+          "notNull": true
+        },
+        "CustomerDesc": {
+          "type": "cds.String"
+        },
+        "Customers": {
+          "type": "cds.Association",
+          "cardinality": {
+            "max": "*"
+          },
+          "target": "NorthwindV4.Customers",
+          "keys": []
+        }
+      }
+    },
+    "NorthwindV4.Customers": {
+      "kind": "entity",
+      "@cds.external": true,
+      "@cds.persistence.skip": true,
+      "elements": {
+        "CustomerID": {
+          "key": true,
+          "type": "cds.String",
+          "notNull": true
+        },
+        "CompanyName": {
+          "type": "cds.String"
+        },
+        "ContactName": {
+          "type": "cds.String"
+        },
+        "ContactTitle": {
+          "type": "cds.String"
+        },
+        "Address": {
+          "type": "cds.String"
+        },
+        "City": {
+          "type": "cds.String"
+        },
+        "Region": {
+          "type": "cds.String"
+        },
+        "PostalCode": {
+          "type": "cds.String"
+        },
+        "Country": {
+          "type": "cds.String"
+        },
+        "Phone": {
+          "type": "cds.String"
+        },
+        "Fax": {
+          "type": "cds.String"
+        },
+        "Orders": {
+          "type": "cds.Association",
+          "cardinality": {
+            "max": "*"
+          },
+          "target": "NorthwindV4.Orders",
+          "keys": []
+        },
+        "CustomerDemographics": {
+          "type": "cds.Association",
+          "cardinality": {
+            "max": "*"
+          },
+          "target": "NorthwindV4.CustomerDemographics",
+          "keys": []
+        }
+      }
+    },
+    "NorthwindV4.Employees": {
+      "kind": "entity",
+      "@cds.external": true,
+      "@cds.persistence.skip": true,
+      "elements": {
+        "EmployeeID": {
+          "key": true,
+          "type": "cds.Integer",
+          "notNull": true
+        },
+        "LastName": {
+          "type": "cds.String"
+        },
+        "FirstName": {
+          "type": "cds.String"
+        },
+        "Title": {
+          "type": "cds.String"
+        },
+        "TitleOfCourtesy": {
+          "type": "cds.String"
+        },
+        "BirthDate": {
+          "@odata.Precision": 0,
+          "@odata.Type": "Edm.DateTimeOffset",
+          "type": "cds.DateTime"
+        },
+        "HireDate": {
+          "@odata.Precision": 0,
+          "@odata.Type": "Edm.DateTimeOffset",
+          "type": "cds.DateTime"
+        },
+        "Address": {
+          "type": "cds.String"
+        },
+        "City": {
+          "type": "cds.String"
+        },
+        "Region": {
+          "type": "cds.String"
+        },
+        "PostalCode": {
+          "type": "cds.String"
+        },
+        "Country": {
+          "type": "cds.String"
+        },
+        "HomePhone": {
+          "type": "cds.String"
+        },
+        "Extension": {
+          "type": "cds.String"
+        },
+        "Photo": {
+          "type": "cds.LargeBinary"
+        },
+        "Notes": {
+          "type": "cds.String"
+        },
+        "ReportsTo": {
+          "type": "cds.Integer"
+        },
+        "PhotoPath": {
+          "type": "cds.String"
+        },
+        "Employees1": {
+          "type": "cds.Association",
+          "cardinality": {
+            "max": "*"
+          },
+          "target": "NorthwindV4.Employees",
+          "keys": []
+        },
+        "Employee1": {
+          "type": "cds.Association",
+          "cardinality": {
+            "max": 1
+          },
+          "target": "NorthwindV4.Employees",
+          "keys": []
+        },
+        "Orders": {
+          "type": "cds.Association",
+          "cardinality": {
+            "max": "*"
+          },
+          "target": "NorthwindV4.Orders",
+          "keys": []
+        },
+        "Territories": {
+          "type": "cds.Association",
+          "cardinality": {
+            "max": "*"
+          },
+          "target": "NorthwindV4.Territories",
+          "keys": []
+        }
+      }
+    },
+    "NorthwindV4.Order_Details": {
+      "kind": "entity",
+      "@cds.external": true,
+      "@cds.persistence.skip": true,
+      "elements": {
+        "OrderID": {
+          "key": true,
+          "type": "cds.Integer",
+          "notNull": true
+        },
+        "ProductID": {
+          "key": true,
+          "type": "cds.Integer",
+          "notNull": true
+        },
+        "UnitPrice": {
+          "type": "cds.Decimal",
+          "notNull": true
+        },
+        "Quantity": {
+          "type": "cds.Integer",
+          "notNull": true
+        },
+        "Discount": {
+          "@odata.Type": "Edm.Single",
+          "type": "cds.Double",
+          "notNull": true
+        },
+        "Order": {
+          "type": "cds.Association",
+          "cardinality": {
+            "max": 1
+          },
+          "target": "NorthwindV4.Orders",
+          "keys": []
+        },
+        "Product": {
+          "type": "cds.Association",
+          "cardinality": {
+            "max": 1
+          },
+          "target": "NorthwindV4.Products",
+          "keys": []
+        }
+      }
+    },
+    "NorthwindV4.Orders": {
+      "kind": "entity",
+      "@cds.external": true,
+      "@cds.persistence.skip": true,
+      "elements": {
+        "OrderID": {
+          "key": true,
+          "type": "cds.Integer",
+          "notNull": true
+        },
+        "CustomerID": {
+          "type": "cds.String"
+        },
+        "EmployeeID": {
+          "type": "cds.Integer"
+        },
+        "OrderDate": {
+          "@odata.Precision": 0,
+          "@odata.Type": "Edm.DateTimeOffset",
+          "type": "cds.DateTime"
+        },
+        "RequiredDate": {
+          "@odata.Precision": 0,
+          "@odata.Type": "Edm.DateTimeOffset",
+          "type": "cds.DateTime"
+        },
+        "ShippedDate": {
+          "@odata.Precision": 0,
+          "@odata.Type": "Edm.DateTimeOffset",
+          "type": "cds.DateTime"
+        },
+        "ShipVia": {
+          "type": "cds.Integer"
+        },
+        "Freight": {
+          "type": "cds.Decimal"
+        },
+        "ShipName": {
+          "type": "cds.String"
+        },
+        "ShipAddress": {
+          "type": "cds.String"
+        },
+        "ShipCity": {
+          "type": "cds.String"
+        },
+        "ShipRegion": {
+          "type": "cds.String"
+        },
+        "ShipPostalCode": {
+          "type": "cds.String"
+        },
+        "ShipCountry": {
+          "type": "cds.String"
+        },
+        "Customer": {
+          "type": "cds.Association",
+          "cardinality": {
+            "max": 1
+          },
+          "target": "NorthwindV4.Customers",
+          "keys": []
+        },
+        "Employee": {
+          "type": "cds.Association",
+          "cardinality": {
+            "max": 1
+          },
+          "target": "NorthwindV4.Employees",
+          "keys": []
+        },
+        "Order_Details": {
+          "type": "cds.Association",
+          "cardinality": {
+            "max": "*"
+          },
+          "target": "NorthwindV4.Order_Details",
+          "keys": []
+        },
+        "Shipper": {
+          "type": "cds.Association",
+          "cardinality": {
+            "max": 1
+          },
+          "target": "NorthwindV4.Shippers",
+          "keys": []
+        }
+      }
+    },
+    "NorthwindV4.Products": {
+      "kind": "entity",
+      "@cds.external": true,
+      "@cds.persistence.skip": true,
+      "elements": {
+        "ProductID": {
+          "key": true,
+          "type": "cds.Integer",
+          "notNull": true
+        },
+        "ProductName": {
+          "type": "cds.String"
+        },
+        "SupplierID": {
+          "type": "cds.Integer"
+        },
+        "CategoryID": {
+          "type": "cds.Integer"
+        },
+        "QuantityPerUnit": {
+          "type": "cds.String"
+        },
+        "UnitPrice": {
+          "type": "cds.Decimal"
+        },
+        "UnitsInStock": {
+          "type": "cds.Integer"
+        },
+        "UnitsOnOrder": {
+          "type": "cds.Integer"
+        },
+        "ReorderLevel": {
+          "type": "cds.Integer"
+        },
+        "Discontinued": {
+          "type": "cds.Boolean",
+          "notNull": true
+        },
+        "Category": {
+          "type": "cds.Association",
+          "cardinality": {
+            "max": 1
+          },
+          "target": "NorthwindV4.Categories",
+          "keys": []
+        },
+        "Order_Details": {
+          "type": "cds.Association",
+          "cardinality": {
+            "max": "*"
+          },
+          "target": "NorthwindV4.Order_Details",
+          "keys": []
+        },
+        "Supplier": {
+          "type": "cds.Association",
+          "cardinality": {
+            "max": 1
+          },
+          "target": "NorthwindV4.Suppliers",
+          "keys": []
+        }
+      }
+    },
+    "NorthwindV4.Regions": {
+      "kind": "entity",
+      "@cds.external": true,
+      "@cds.persistence.skip": true,
+      "elements": {
+        "RegionID": {
+          "key": true,
+          "type": "cds.Integer",
+          "notNull": true
+        },
+        "RegionDescription": {
+          "type": "cds.String"
+        },
+        "Territories": {
+          "type": "cds.Association",
+          "cardinality": {
+            "max": "*"
+          },
+          "target": "NorthwindV4.Territories",
+          "keys": []
+        }
+      }
+    },
+    "NorthwindV4.Shippers": {
+      "kind": "entity",
+      "@cds.external": true,
+      "@cds.persistence.skip": true,
+      "elements": {
+        "ShipperID": {
+          "key": true,
+          "type": "cds.Integer",
+          "notNull": true
+        },
+        "CompanyName": {
+          "type": "cds.String"
+        },
+        "Phone": {
+          "type": "cds.String"
+        },
+        "Orders": {
+          "type": "cds.Association",
+          "cardinality": {
+            "max": "*"
+          },
+          "target": "NorthwindV4.Orders",
+          "keys": []
+        }
+      }
+    },
+    "NorthwindV4.Suppliers": {
+      "kind": "entity",
+      "@cds.external": true,
+      "@cds.persistence.skip": true,
+      "elements": {
+        "SupplierID": {
+          "key": true,
+          "type": "cds.Integer",
+          "notNull": true
+        },
+        "CompanyName": {
+          "type": "cds.String"
+        },
+        "ContactName": {
+          "type": "cds.String"
+        },
+        "ContactTitle": {
+          "type": "cds.String"
+        },
+        "Address": {
+          "type": "cds.String"
+        },
+        "City": {
+          "type": "cds.String"
+        },
+        "Region": {
+          "type": "cds.String"
+        },
+        "PostalCode": {
+          "type": "cds.String"
+        },
+        "Country": {
+          "type": "cds.String"
+        },
+        "Phone": {
+          "type": "cds.String"
+        },
+        "Fax": {
+          "type": "cds.String"
+        },
+        "HomePage": {
+          "type": "cds.String"
+        },
+        "Products": {
+          "type": "cds.Association",
+          "cardinality": {
+            "max": "*"
+          },
+          "target": "NorthwindV4.Products",
+          "keys": []
+        }
+      }
+    },
+    "NorthwindV4.Territories": {
+      "kind": "entity",
+      "@cds.external": true,
+      "@cds.persistence.skip": true,
+      "elements": {
+        "TerritoryID": {
+          "key": true,
+          "type": "cds.String",
+          "notNull": true
+        },
+        "TerritoryDescription": {
+          "type": "cds.String"
+        },
+        "RegionID": {
+          "type": "cds.Integer",
+          "notNull": true
+        },
+        "Region": {
+          "type": "cds.Association",
+          "cardinality": {
+            "max": 1
+          },
+          "target": "NorthwindV4.Regions",
+          "keys": []
+        },
+        "Employees": {
+          "type": "cds.Association",
+          "cardinality": {
+            "max": "*"
+          },
+          "target": "NorthwindV4.Employees",
+          "keys": []
+        }
+      }
+    },
+    "NorthwindV4.Alphabetical_list_of_products": {
+      "kind": "entity",
+      "@cds.external": true,
+      "@cds.persistence.skip": true,
+      "elements": {
+        "ProductID": {
+          "key": true,
+          "type": "cds.Integer",
+          "notNull": true
+        },
+        "ProductName": {
+          "key": true,
+          "type": "cds.String",
+          "notNull": true
+        },
+        "SupplierID": {
+          "type": "cds.Integer"
+        },
+        "CategoryID": {
+          "type": "cds.Integer"
+        },
+        "QuantityPerUnit": {
+          "type": "cds.String"
+        },
+        "UnitPrice": {
+          "type": "cds.Decimal"
+        },
+        "UnitsInStock": {
+          "type": "cds.Integer"
+        },
+        "UnitsOnOrder": {
+          "type": "cds.Integer"
+        },
+        "ReorderLevel": {
+          "type": "cds.Integer"
+        },
+        "Discontinued": {
+          "key": true,
+          "type": "cds.Boolean",
+          "notNull": true
+        },
+        "CategoryName": {
+          "key": true,
+          "type": "cds.String",
+          "notNull": true
+        }
+      }
+    },
+    "NorthwindV4.Category_Sales_for_1997": {
+      "kind": "entity",
+      "@cds.external": true,
+      "@cds.persistence.skip": true,
+      "elements": {
+        "CategoryName": {
+          "key": true,
+          "type": "cds.String",
+          "notNull": true
+        },
+        "CategorySales": {
+          "type": "cds.Decimal"
+        }
+      }
+    },
+    "NorthwindV4.Current_Product_Lists": {
+      "kind": "entity",
+      "@cds.external": true,
+      "@cds.persistence.skip": true,
+      "elements": {
+        "ProductID": {
+          "key": true,
+          "type": "cds.Integer",
+          "notNull": true
+        },
+        "ProductName": {
+          "key": true,
+          "type": "cds.String",
+          "notNull": true
+        }
+      }
+    },
+    "NorthwindV4.Customer_and_Suppliers_by_Cities": {
+      "kind": "entity",
+      "@cds.external": true,
+      "@cds.persistence.skip": true,
+      "elements": {
+        "City": {
+          "type": "cds.String"
+        },
+        "CompanyName": {
+          "key": true,
+          "type": "cds.String",
+          "notNull": true
+        },
+        "ContactName": {
+          "type": "cds.String"
+        },
+        "Relationship": {
+          "key": true,
+          "type": "cds.String",
+          "notNull": true
+        }
+      }
+    },
+    "NorthwindV4.Invoices": {
+      "kind": "entity",
+      "@cds.external": true,
+      "@cds.persistence.skip": true,
+      "elements": {
+        "ShipName": {
+          "type": "cds.String"
+        },
+        "ShipAddress": {
+          "type": "cds.String"
+        },
+        "ShipCity": {
+          "type": "cds.String"
+        },
+        "ShipRegion": {
+          "type": "cds.String"
+        },
+        "ShipPostalCode": {
+          "type": "cds.String"
+        },
+        "ShipCountry": {
+          "type": "cds.String"
+        },
+        "CustomerID": {
+          "type": "cds.String"
+        },
+        "CustomerName": {
+          "key": true,
+          "type": "cds.String",
+          "notNull": true
+        },
+        "Address": {
+          "type": "cds.String"
+        },
+        "City": {
+          "type": "cds.String"
+        },
+        "Region": {
+          "type": "cds.String"
+        },
+        "PostalCode": {
+          "type": "cds.String"
+        },
+        "Country": {
+          "type": "cds.String"
+        },
+        "Salesperson": {
+          "key": true,
+          "type": "cds.String",
+          "notNull": true
+        },
+        "OrderID": {
+          "key": true,
+          "type": "cds.Integer",
+          "notNull": true
+        },
+        "OrderDate": {
+          "@odata.Precision": 0,
+          "@odata.Type": "Edm.DateTimeOffset",
+          "type": "cds.DateTime"
+        },
+        "RequiredDate": {
+          "@odata.Precision": 0,
+          "@odata.Type": "Edm.DateTimeOffset",
+          "type": "cds.DateTime"
+        },
+        "ShippedDate": {
+          "@odata.Precision": 0,
+          "@odata.Type": "Edm.DateTimeOffset",
+          "type": "cds.DateTime"
+        },
+        "ShipperName": {
+          "key": true,
+          "type": "cds.String",
+          "notNull": true
+        },
+        "ProductID": {
+          "key": true,
+          "type": "cds.Integer",
+          "notNull": true
+        },
+        "ProductName": {
+          "key": true,
+          "type": "cds.String",
+          "notNull": true
+        },
+        "UnitPrice": {
+          "key": true,
+          "type": "cds.Decimal",
+          "notNull": true
+        },
+        "Quantity": {
+          "key": true,
+          "type": "cds.Integer",
+          "notNull": true
+        },
+        "Discount": {
+          "@odata.Type": "Edm.Single",
+          "key": true,
+          "type": "cds.Double",
+          "notNull": true
+        },
+        "ExtendedPrice": {
+          "type": "cds.Decimal"
+        },
+        "Freight": {
+          "type": "cds.Decimal"
+        }
+      }
+    },
+    "NorthwindV4.Order_Details_Extendeds": {
+      "kind": "entity",
+      "@cds.external": true,
+      "@cds.persistence.skip": true,
+      "elements": {
+        "OrderID": {
+          "key": true,
+          "type": "cds.Integer",
+          "notNull": true
+        },
+        "ProductID": {
+          "key": true,
+          "type": "cds.Integer",
+          "notNull": true
+        },
+        "ProductName": {
+          "key": true,
+          "type": "cds.String",
+          "notNull": true
+        },
+        "UnitPrice": {
+          "key": true,
+          "type": "cds.Decimal",
+          "notNull": true
+        },
+        "Quantity": {
+          "key": true,
+          "type": "cds.Integer",
+          "notNull": true
+        },
+        "Discount": {
+          "@odata.Type": "Edm.Single",
+          "key": true,
+          "type": "cds.Double",
+          "notNull": true
+        },
+        "ExtendedPrice": {
+          "type": "cds.Decimal"
+        }
+      }
+    },
+    "NorthwindV4.Order_Subtotals": {
+      "kind": "entity",
+      "@cds.external": true,
+      "@cds.persistence.skip": true,
+      "elements": {
+        "OrderID": {
+          "key": true,
+          "type": "cds.Integer",
+          "notNull": true
+        },
+        "Subtotal": {
+          "type": "cds.Decimal"
+        }
+      }
+    },
+    "NorthwindV4.Orders_Qries": {
+      "kind": "entity",
+      "@cds.external": true,
+      "@cds.persistence.skip": true,
+      "elements": {
+        "OrderID": {
+          "key": true,
+          "type": "cds.Integer",
+          "notNull": true
+        },
+        "CustomerID": {
+          "type": "cds.String"
+        },
+        "EmployeeID": {
+          "type": "cds.Integer"
+        },
+        "OrderDate": {
+          "@odata.Precision": 0,
+          "@odata.Type": "Edm.DateTimeOffset",
+          "type": "cds.DateTime"
+        },
+        "RequiredDate": {
+          "@odata.Precision": 0,
+          "@odata.Type": "Edm.DateTimeOffset",
+          "type": "cds.DateTime"
+        },
+        "ShippedDate": {
+          "@odata.Precision": 0,
+          "@odata.Type": "Edm.DateTimeOffset",
+          "type": "cds.DateTime"
+        },
+        "ShipVia": {
+          "type": "cds.Integer"
+        },
+        "Freight": {
+          "type": "cds.Decimal"
+        },
+        "ShipName": {
+          "type": "cds.String"
+        },
+        "ShipAddress": {
+          "type": "cds.String"
+        },
+        "ShipCity": {
+          "type": "cds.String"
+        },
+        "ShipRegion": {
+          "type": "cds.String"
+        },
+        "ShipPostalCode": {
+          "type": "cds.String"
+        },
+        "ShipCountry": {
+          "type": "cds.String"
+        },
+        "CompanyName": {
+          "key": true,
+          "type": "cds.String",
+          "notNull": true
+        },
+        "Address": {
+          "type": "cds.String"
+        },
+        "City": {
+          "type": "cds.String"
+        },
+        "Region": {
+          "type": "cds.String"
+        },
+        "PostalCode": {
+          "type": "cds.String"
+        },
+        "Country": {
+          "type": "cds.String"
+        }
+      }
+    },
+    "NorthwindV4.Product_Sales_for_1997": {
+      "kind": "entity",
+      "@cds.external": true,
+      "@cds.persistence.skip": true,
+      "elements": {
+        "CategoryName": {
+          "key": true,
+          "type": "cds.String",
+          "notNull": true
+        },
+        "ProductName": {
+          "key": true,
+          "type": "cds.String",
+          "notNull": true
+        },
+        "ProductSales": {
+          "type": "cds.Decimal"
+        }
+      }
+    },
+    "NorthwindV4.Products_Above_Average_Prices": {
+      "kind": "entity",
+      "@cds.external": true,
+      "@cds.persistence.skip": true,
+      "elements": {
+        "ProductName": {
+          "key": true,
+          "type": "cds.String",
+          "notNull": true
+        },
+        "UnitPrice": {
+          "type": "cds.Decimal"
+        }
+      }
+    },
+    "NorthwindV4.Products_by_Categories": {
+      "kind": "entity",
+      "@cds.external": true,
+      "@cds.persistence.skip": true,
+      "elements": {
+        "CategoryName": {
+          "key": true,
+          "type": "cds.String",
+          "notNull": true
+        },
+        "ProductName": {
+          "key": true,
+          "type": "cds.String",
+          "notNull": true
+        },
+        "QuantityPerUnit": {
+          "type": "cds.String"
+        },
+        "UnitsInStock": {
+          "type": "cds.Integer"
+        },
+        "Discontinued": {
+          "key": true,
+          "type": "cds.Boolean",
+          "notNull": true
+        }
+      }
+    },
+    "NorthwindV4.Sales_by_Categories": {
+      "kind": "entity",
+      "@cds.external": true,
+      "@cds.persistence.skip": true,
+      "elements": {
+        "CategoryID": {
+          "key": true,
+          "type": "cds.Integer",
+          "notNull": true
+        },
+        "CategoryName": {
+          "key": true,
+          "type": "cds.String",
+          "notNull": true
+        },
+        "ProductName": {
+          "key": true,
+          "type": "cds.String",
+          "notNull": true
+        },
+        "ProductSales": {
+          "type": "cds.Decimal"
+        }
+      }
+    },
+    "NorthwindV4.Sales_Totals_by_Amounts": {
+      "kind": "entity",
+      "@cds.external": true,
+      "@cds.persistence.skip": true,
+      "elements": {
+        "SaleAmount": {
+          "type": "cds.Decimal"
+        },
+        "OrderID": {
+          "key": true,
+          "type": "cds.Integer",
+          "notNull": true
+        },
+        "CompanyName": {
+          "key": true,
+          "type": "cds.String",
+          "notNull": true
+        },
+        "ShippedDate": {
+          "@odata.Precision": 0,
+          "@odata.Type": "Edm.DateTimeOffset",
+          "type": "cds.DateTime"
+        }
+      }
+    },
+    "NorthwindV4.Summary_of_Sales_by_Quarters": {
+      "kind": "entity",
+      "@cds.external": true,
+      "@cds.persistence.skip": true,
+      "elements": {
+        "ShippedDate": {
+          "@odata.Precision": 0,
+          "@odata.Type": "Edm.DateTimeOffset",
+          "type": "cds.DateTime"
+        },
+        "OrderID": {
+          "key": true,
+          "type": "cds.Integer",
+          "notNull": true
+        },
+        "Subtotal": {
+          "type": "cds.Decimal"
+        }
+      }
+    },
+    "NorthwindV4.Summary_of_Sales_by_Years": {
+      "kind": "entity",
+      "@cds.external": true,
+      "@cds.persistence.skip": true,
+      "elements": {
+        "ShippedDate": {
+          "@odata.Precision": 0,
+          "@odata.Type": "Edm.DateTimeOffset",
+          "type": "cds.DateTime"
+        },
+        "OrderID": {
+          "key": true,
+          "type": "cds.Integer",
+          "notNull": true
+        },
+        "Subtotal": {
+          "type": "cds.Decimal"
         }
       }
     },

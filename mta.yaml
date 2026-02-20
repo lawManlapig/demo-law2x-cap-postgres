@@ -9,6 +9,7 @@ modules:
   requires:
   - name: demo-law2x-cap-postgres-auth
   - name: demo-law2x-cap-postgres-postgres
+  - name: demo-law2x-cap-postgres-destination-service
   provides:
   - name: srv-api
     properties:
@@ -78,6 +79,14 @@ modules:
       - employeess4.zip
       name: employeess4
       target-path: resources/
+    - artifacts:
+      - bpapp.zip
+      name: bpapp
+      target-path: resources/
+    - artifacts:
+      - northwindtest.zip
+      name: northwindtest
+      target-path: resources/
 - name: employeesapp
   type: html5
   path: app/employees-app
@@ -91,6 +100,26 @@ modules:
 - name: employeess4
   type: html5
   path: app/employees-s4
+  build-parameters:
+    build-result: dist
+    builder: custom
+    commands:
+    - npm install
+    - npm run build:cf
+    supported-platforms: []
+- name: bpapp
+  type: html5
+  path: app/bp-app
+  build-parameters:
+    build-result: dist
+    builder: custom
+    commands:
+    - npm install
+    - npm run build:cf
+    supported-platforms: []
+- name: northwindtest
+  type: html5
+  path: app/northwind-test
   build-parameters:
     build-result: dist
     builder: custom
